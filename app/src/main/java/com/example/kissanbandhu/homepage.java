@@ -15,7 +15,7 @@ public class homepage extends AppCompatActivity {
         bt = findViewById(R.id.button3);
         bt.setOnClickListener(view -> {
 
-            Intent i = new Intent(homepage.this,buyer.class);
+            Intent i = new Intent(homepage.this, buyerlogin.class);
             startActivity(i);
         });
 
