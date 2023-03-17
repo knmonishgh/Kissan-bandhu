@@ -37,12 +37,12 @@
         />
 
     <EditText
-        android:id="@+id/editTextTextPassword"
+        android:id="@+id/editOTP"
         android:layout_width="match_parent"
         android:layout_height="68dp"
         android:background="#81B88383"
         android:ems="10"
-        android:hint="@string/password"
+        android:hint="@string/otp"
         android:inputType="textPassword"
         android:layout_margin="10dp"
         />
