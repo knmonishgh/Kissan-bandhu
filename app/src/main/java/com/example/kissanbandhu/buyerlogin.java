@@ -56,7 +56,7 @@ public class buyerlogin extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(TextUtils.isEmpty(otp.getText().toString())){
-                    Toast.makeText(buyerlogin.this, "Wrong OTP", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(buyerlogin.this, "Please enter OTP", Toast.LENGTH_SHORT).show();
                 }
                 else {
                     verifycode(otp.getText().toString());
@@ -77,8 +77,8 @@ public class buyerlogin extends AppCompatActivity {
         PhoneAuthProvider.verifyPhoneNumber(options);
     }
 
-private PhoneAuthProvider.OnVerificationStateChangedCallbacks
-    mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
+    private PhoneAuthProvider.OnVerificationStateChangedCallbacks
+            mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
 
         @Override
         public void onVerificationCompleted(@NonNull PhoneAuthCredential credential) {
@@ -95,7 +95,7 @@ private PhoneAuthProvider.OnVerificationStateChangedCallbacks
 
         @Override
         public void onCodeSent(@NonNull String s,
-                @NonNull PhoneAuthProvider.ForceResendingToken token) {
+                               @NonNull PhoneAuthProvider.ForceResendingToken token) {
             super.onCodeSent(s, token);
             verificationid = s;
             Toast.makeText(buyerlogin.this, "OTP Sent", Toast.LENGTH_SHORT).show();
@@ -117,6 +117,10 @@ private PhoneAuthProvider.OnVerificationStateChangedCallbacks
                         if(task.isSuccessful()){
                             Toast.makeText(buyerlogin.this, "Login Successful", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(buyerlogin.this, buyerhomepage.class));
+                        }
+                        else{
+                            Toast.makeText(buyerlogin.this, "Wrong OTP", Toast.LENGTH_SHORT).show();
+                            otp.setText("");
                         }
                     }
                 });
