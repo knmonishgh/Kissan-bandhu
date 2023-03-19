@@ -1,6 +1,8 @@
 package com.example.kissanbandhu;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -32,7 +34,7 @@ public class buyerlogin extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_buyerlogin);
-
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#23863B")));
         phone = findViewById(R.id.phone);
         otp = findViewById(R.id.otp);
         btngen = findViewById(R.id.genotp_button);
@@ -122,6 +124,7 @@ public class buyerlogin extends AppCompatActivity {
                             Toast.makeText(buyerlogin.this, "Wrong OTP", Toast.LENGTH_SHORT).show();
                             otp.setText("");
                         }
+
                     }
                 });
     }
