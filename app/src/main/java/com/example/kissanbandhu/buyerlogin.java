@@ -69,7 +69,7 @@ public class buyerlogin extends AppCompatActivity {
     private void sendverificationcode(String phoneNumber) {
         PhoneAuthOptions options =
                 PhoneAuthOptions.newBuilder(mAuth)
-                        .setPhoneNumber("+91"+phoneNumber)       // Phone number to verify
+                        .setPhoneNumber("+91 "+phoneNumber)       // Phone number to verify
                         .setTimeout(60L, TimeUnit.SECONDS) // Timeout and unit
                         .setActivity(this)                 // Activity (for callback binding)
                         .setCallbacks(mCallbacks)          // OnVerificationStateChangedCallbacks
@@ -90,7 +90,7 @@ private PhoneAuthProvider.OnVerificationStateChangedCallbacks
 
         @Override
         public void onVerificationFailed(@NonNull FirebaseException e) {
-            Toast.makeText(buyerlogin.this, "Verification Failed", Toast.LENGTH_SHORT).show();
+            Toast.makeText(buyerlogin.this, "Wrong Number", Toast.LENGTH_SHORT).show();
         }
 
         @Override
@@ -98,9 +98,11 @@ private PhoneAuthProvider.OnVerificationStateChangedCallbacks
                 @NonNull PhoneAuthProvider.ForceResendingToken token) {
             super.onCodeSent(s, token);
             verificationid = s;
+            Toast.makeText(buyerlogin.this, "OTP Sent", Toast.LENGTH_SHORT).show();
         }
     };
 
+    //till here number verification
     private void verifycode(String Code) {
         PhoneAuthCredential credential = PhoneAuthProvider.getCredential(verificationid, Code);
         signinbycredentials(credential);

@@ -35,9 +35,9 @@
             </TextView>
 
             <EditText
+                android:id="@+id/login"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:id="@+id/login"
                 android:layout_marginTop="40dp"
                 android:padding="8dp"
                 android:background="@drawable/custom_edittext"
