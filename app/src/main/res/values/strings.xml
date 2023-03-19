@@ -7,5 +7,7 @@
     <string name="generate_otp">Generate OTP</string>
     <string name="verify_otp">Verify OTP</string>
     <string name="phone">Enter Number</string>
-    <string name="welcome">Welcome</string>
+    <string name="rent_btn">Rent</string>
+    <string name="buy_btn">Buy</string>
+    <string name="hello">Hello</string>
 </resources>

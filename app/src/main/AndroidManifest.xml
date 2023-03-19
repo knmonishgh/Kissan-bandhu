@@ -12,6 +12,9 @@
         android:theme="@style/Theme.KISSANBANDHU"
         tools:targetApi="31">
         <activity
+            android:name=".buyer_rentmenu"
+            android:exported="false" />
+        <activity
             android:name=".buyerhomepage"
             android:exported="false" />
         <activity
