@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "465136628267",
+    "project_id": "kissan-bandhu-32530",
+    "storage_bucket": "kissan-bandhu-32530.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:465136628267:android:340df248fee2518d83306e",
+        "android_client_info": {
+          "package_name": "com.example.kissanbandhu"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "465136628267-6ulmgvsj5qfr97tdj11idhmrdi67tjpb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDZ_P57SPD5em-za3B3jplve4gaMeTppNo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "465136628267-6ulmgvsj5qfr97tdj11idhmrdi67tjpb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

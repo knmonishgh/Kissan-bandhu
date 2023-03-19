@@ -48,13 +48,21 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:id="@+id/number"
+                android:id="@+id/phone"
                 android:layout_marginTop="40dp"
                 android:padding="8dp"
                 android:background="@drawable/custom_edittext"
-                android:hint="@string/number">
+                android:hint="Enter Number"
+                android:inputType="phone" />
 
-            </EditText>
+            <Button
+                android:layout_width="200dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="30dp"
+                android:id="@+id/genotp_button"
+                android:layout_gravity="center"
+                android:text="@string/generate_otp"
+                android:textSize="20dp"></Button>
 
             <EditText
                 android:layout_width="match_parent"
@@ -63,17 +71,18 @@
                 android:layout_marginTop="40dp"
                 android:padding="8dp"
                 android:background="@drawable/custom_edittext"
-                android:hint="@string/otp">
+                android:hint="@string/otp"
+                android:inputType="number" >
 
             </EditText>
 
             <Button
-                android:layout_width="150dp"
+                android:layout_width="200dp"
                 android:layout_height="60dp"
                 android:layout_marginTop="30dp"
-                android:id="@+id/login_button"
+                android:id="@+id/verifyotp_button"
                 android:layout_gravity="center"
-                android:text="@string/OK"
+                android:text="@string/verify_otp"
                 android:textSize="20dp"></Button>
 
         </LinearLayout>
