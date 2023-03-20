@@ -12,6 +12,7 @@ public class buyer_rentmenu extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_buyer_rentmenu);
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#23863B")));
+        getSupportActionBar().setTitle("BUYER");
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#547AE1")));
     }
 }

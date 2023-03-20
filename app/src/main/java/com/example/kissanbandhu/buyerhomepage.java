@@ -15,7 +15,7 @@ public class buyerhomepage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_buyerhomepage);
-        btn = findViewById(R.id.rent_btn);
+        btn = findViewById(R.id.equipments);
         getSupportActionBar().setTitle("BUYER");
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#23863B")));
         btn.setOnClickListener(view -> {
