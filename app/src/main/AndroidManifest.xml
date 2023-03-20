@@ -16,8 +16,7 @@
             android:exported="false" />
         <activity
             android:name=".buyerhomepage"
-            android:exported="false"
-            />
+            android:exported="false" />
         <activity
             android:name=".buyerlogin"
             android:exported="false" />
