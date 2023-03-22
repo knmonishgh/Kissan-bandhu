@@ -15,4 +15,10 @@
     <string name="buy">BUY</string>
     <string name="equip">Equipments</string>
     <string name="pesticides">Pesticides</string>
+    <string name="search">Search</string>
+    <string name="search_">Search</string>
+    <string name="tractor">Tractor</string>
+    <string name="trolley">Trolley</string>
+    <string name="seeder">Seeder</string>
+    <string name="cultivator">Cultivator</string>
 </resources>
