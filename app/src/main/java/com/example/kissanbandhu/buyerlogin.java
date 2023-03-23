@@ -21,15 +21,20 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthOptions;
 import com.google.firebase.auth.PhoneAuthProvider;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
 
 public class buyerlogin extends AppCompatActivity {
 
-    EditText phone, otp;
-    Button btngen, btnverify;
-    FirebaseAuth mAuth;
-    String verificationid;
+    private EditText phone, otp, name;
+    private Button btngen, btnverify;
+    private FirebaseAuth mAuth;
+    private String verificationid;
+    private FirebaseDatabase mDatabase;
+    private DatabaseReference mRef;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,9 +42,12 @@ public class buyerlogin extends AppCompatActivity {
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#23863B")));
         phone = findViewById(R.id.phone);
         otp = findViewById(R.id.otp);
+        name = findViewById(R.id.login_name);
         btngen = findViewById(R.id.genotp_button);
         btnverify = findViewById(R.id.verifyotp_button);
         mAuth = FirebaseAuth.getInstance();
+        mDatabase = FirebaseDatabase.getInstance();
+        mRef = mDatabase.getReference("buyer_login");
 
         btngen.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,6 +61,8 @@ public class buyerlogin extends AppCompatActivity {
                 }
             }
         });
+
+
 
         btnverify.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -119,6 +129,15 @@ public class buyerlogin extends AppCompatActivity {
                         if(task.isSuccessful()){
                             Toast.makeText(buyerlogin.this, "Login Successful", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(buyerlogin.this, buyerhomepage.class));
+                            String getName = name.getText().toString();
+                            String getPhone = phone.getText().toString();
+
+                            HashMap<String, Object> hashMap = new HashMap<>();
+                            hashMap.put("name",getName);
+                            hashMap.put("phone",getPhone);
+
+                            mRef.child("users").child(getName).setValue(hashMap);
+
                         }
                         else{
                             Toast.makeText(buyerlogin.this, "Wrong OTP", Toast.LENGTH_SHORT).show();
@@ -127,5 +146,6 @@ public class buyerlogin extends AppCompatActivity {
 
                     }
                 });
+
     }
 }
