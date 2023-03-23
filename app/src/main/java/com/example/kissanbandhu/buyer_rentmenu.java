@@ -1,13 +1,16 @@
 package com.example.kissanbandhu;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class buyer_rentmenu extends AppCompatActivity {
 
+    private Button btntrac;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
