@@ -20,7 +20,7 @@ public class buyer_productsmenu extends AppCompatActivity {
     RecyclerView recyclerView;
     DatabaseReference database;
     MyAdapter myAdapter;
-    ArrayList<User> list;
+    ArrayList<Tractors> list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +28,7 @@ public class buyer_productsmenu extends AppCompatActivity {
         setContentView(R.layout.activity_buyer_productsmenu);
 
         recyclerView = findViewById(R.id.tracList);
-        database = FirebaseDatabase.getInstance().getReference("buyer_login");
+        database = FirebaseDatabase.getInstance().getReference("Tractors");
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -42,8 +42,9 @@ public class buyer_productsmenu extends AppCompatActivity {
 
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()){
 
-                    User user = dataSnapshot.getValue(User.class);
-                    list.add(user);
+
+                    Tractors trac = dataSnapshot.getValue(Tractors.class);
+                    list.add(trac);
 
 
                 }

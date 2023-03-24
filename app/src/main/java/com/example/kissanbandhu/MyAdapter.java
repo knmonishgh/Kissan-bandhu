@@ -15,10 +15,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     Context context;
 
-    ArrayList<User> list;
+    ArrayList<Tractors> list;
 
 
-    public MyAdapter(Context context, ArrayList<User> list) {
+    public MyAdapter(Context context, ArrayList<Tractors> list) {
         this.context = context;
         this.list = list;
     }
@@ -33,10 +33,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
-        User user = list.get(position);
-        holder.Tractor.setText(user.getTractor());
-        holder.Dealer.setText(user.getDealer());
-        holder.Price.setText(user.getPrice());
+        Tractors trac = list.get(position);
+        holder.Tractor.setText(trac.getTractor());
+        holder.Dealer.setText(trac.getDealer());
+        holder.Price.setText(trac.getPrice());
 
 
     }

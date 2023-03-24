@@ -1,6 +1,6 @@
 package com.example.kissanbandhu;
 
-public class User {
+public class Tractors {
 
     String Tractor, Dealer, Price;
 
@@ -14,5 +14,17 @@ public class User {
 
     public String getPrice() {
         return Price;
+    }
+
+    public void setTractor(String tractor) {
+        Tractor = tractor;
+    }
+
+    public void setDealer(String dealer) {
+        Dealer = dealer;
+    }
+
+    public void setPrice(String price) {
+        Price = price;
     }
 }
