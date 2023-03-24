@@ -17,5 +17,12 @@ public class buyer_rentmenu extends AppCompatActivity {
         setContentView(R.layout.activity_buyer_rentmenu);
         getSupportActionBar().setTitle("BUYER");
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#547AE1")));
+        btntrac = findViewById(R.id.Tractor);
+        btntrac.setOnClickListener(view ->
+        {
+            Intent i = new Intent(buyer_rentmenu.this, buyer_productsmenu.class);
+            startActivity(i);
+        });
+
     }
 }

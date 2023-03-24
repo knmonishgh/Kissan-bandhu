@@ -19,7 +19,6 @@ public class buyerhomepage extends AppCompatActivity {
         getSupportActionBar().setTitle("BUYER");
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#23863B")));
         btn.setOnClickListener(view -> {
-
             Intent i = new Intent(buyerhomepage.this, buyer_rentmenu.class);
             startActivity(i);
         });
