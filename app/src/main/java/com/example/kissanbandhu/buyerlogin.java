@@ -137,7 +137,7 @@ public class buyerlogin extends AppCompatActivity {
                             hashMap.put("phone",getPhone);
 
                             mRef.child("users").child(getName).setValue(hashMap);
-
+                            otp.setText("");
                         }
                         else{
                             Toast.makeText(buyerlogin.this, "Wrong OTP", Toast.LENGTH_SHORT).show();
