@@ -21,4 +21,7 @@
     <string name="trolley">Trolley</string>
     <string name="seeder">Seeder</string>
     <string name="cultivator">Cultivator</string>
+    <string name="home">Home</string>
+    <string name="cart">Cart</string>
+    <string name="orders">Orders</string>
 </resources>
