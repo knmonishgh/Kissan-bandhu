@@ -5,8 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -22,16 +26,16 @@ public class buyer_productsmenu extends AppCompatActivity {
     MyAdapter myAdapter;
     ArrayList<Tractors> list;
 
+    BottomNavigationView nav;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_buyer_productsmenu);
-
-        recyclerView = findViewById(R.id.tracList);
         database = FirebaseDatabase.getInstance().getReference("Tractors");
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
+        nav = findViewById(R.id.nav);
         list = new ArrayList<>();
         myAdapter = new MyAdapter(this,list);
         recyclerView.setAdapter(myAdapter);
@@ -57,7 +61,23 @@ public class buyer_productsmenu extends AppCompatActivity {
 
             }
         });
+        nav.setOnItemReselectedListener(new NavigationBarView.OnItemReselectedListener() {
+            @Override
+            public void onNavigationItemReselected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
 
+                    case R.id.homenav:
+                        startActivity(new Intent(buyer_productsmenu.this,buyerhomepage.class));
+                        break;
+                    case R.id.cartnav:
+                        startActivity(new Intent(buyer_productsmenu.this,rentcart.class));
+                        break;
+                    case R.id.ordersnav:
+                        startActivity(new Intent(buyer_productsmenu.this,orders.class));
+                        break;
+                }
+            }
+        });
 
     }
 }
