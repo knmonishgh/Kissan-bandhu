@@ -12,6 +12,12 @@
         android:theme="@style/Theme.KISSANBANDHU"
         tools:targetApi="31">
         <activity
+            android:name=".buyer_orderdetails"
+            android:exported="false" />
+        <activity
+            android:name=".buyer_enterdetails"
+            android:exported="false" />
+        <activity
             android:name=".orders"
             android:exported="false" />
         <activity

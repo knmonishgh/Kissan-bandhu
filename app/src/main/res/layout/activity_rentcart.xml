@@ -6,4 +6,20 @@
     android:layout_height="match_parent"
     tools:context=".rentcart">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints">
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/nav"
+            android:layout_alignParentBottom="true"
+            app:menu="@menu/menu_bar"
+            android:background="@color/ash_top"/>
+
+
+    </RelativeLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

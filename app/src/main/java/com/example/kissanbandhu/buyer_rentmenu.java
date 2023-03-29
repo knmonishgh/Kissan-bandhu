@@ -43,7 +43,7 @@ public class buyer_rentmenu extends AppCompatActivity {
                         startActivity(new Intent(buyer_rentmenu.this,rentcart.class));
                         break;
                     case R.id.ordersnav:
-                        startActivity(new Intent(buyer_rentmenu.this,rentcart.class));
+                        startActivity(new Intent(buyer_rentmenu.this,orders.class));
                         break;
                 }
             }

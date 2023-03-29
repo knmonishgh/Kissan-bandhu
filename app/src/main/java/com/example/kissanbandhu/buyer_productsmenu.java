@@ -6,6 +6,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -28,11 +30,16 @@ public class buyer_productsmenu extends AppCompatActivity {
 
     BottomNavigationView nav;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_buyer_productsmenu);
+        getSupportActionBar().setTitle("BUYER");
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#547AE1")));
         database = FirebaseDatabase.getInstance().getReference("Tractors");
+        recyclerView = findViewById(R.id.tracList);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         nav = findViewById(R.id.nav);

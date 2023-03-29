@@ -12,14 +12,14 @@ import android.view.MenuItem;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
-public class orders extends AppCompatActivity {
+public class buyer_orderdetails extends AppCompatActivity {
     BottomNavigationView nav;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_orders);
-        getSupportActionBar().setTitle("ORDERS");
+        setContentView(R.layout.activity_buyer_orderdetails);
+        getSupportActionBar().setTitle("ORDER DETAILS");
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#547AE1")));
         nav = findViewById(R.id.nav);
         nav.setOnItemReselectedListener(new NavigationBarView.OnItemReselectedListener() {
@@ -28,13 +28,13 @@ public class orders extends AppCompatActivity {
                 switch (item.getItemId()){
 
                     case R.id.homenav:
-                        startActivity(new Intent(orders.this,buyerhomepage.class));
+                        startActivity(new Intent(buyer_orderdetails.this,buyerhomepage.class));
                         break;
                     case R.id.cartnav:
-                        startActivity(new Intent(orders.this,rentcart.class));
+                        startActivity(new Intent(buyer_orderdetails.this,rentcart.class));
                         break;
                     case R.id.ordersnav:
-                        startActivity(new Intent(orders.this,orders.class));
+                        startActivity(new Intent(buyer_orderdetails.this,orders.class));
                         break;
                 }
             }

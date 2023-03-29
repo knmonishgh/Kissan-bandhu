@@ -5,8 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardElevation="8dp"
     app:cardCornerRadius="8dp"
-    android:layout_margin="16dp"
-    >
+    android:layout_margin="16dp">
 
 
     <RelativeLayout
@@ -15,12 +14,13 @@
 
 
         <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:id="@+id/img_trac"
+            android:layout_width="132dp"
+            android:layout_height="140dp"
+            android:layout_alignParentLeft="true"
             android:layout_marginStart="40dp"
-            android:src="@drawable/tractor_new"
-            android:layout_alignParentLeft="true"/>
-
+            android:layout_marginLeft="32dp"
+            android:src="@drawable/tractor_new" />
 
         <LinearLayout
             android:layout_width="190dp"
@@ -102,13 +102,14 @@
         </LinearLayout>
         <Button
             android:id="@+id/addtocart"
-            android:layout_width="match_parent"
+            android:layout_width="120dp"
             android:layout_height="50dp"
-            android:text="Add To Cart"
-            android:layout_marginLeft="10dp"
+            android:text="Rent now"
+            android:layout_marginLeft="140dp"
             android:layout_marginRight="10dp"
             android:layout_marginTop="100dp"
             android:textSize="15dp"
+            android:layout_alignLeft="@+id/img_trac"
             android:backgroundTint="@color/green_top"/>
 
     </RelativeLayout>
