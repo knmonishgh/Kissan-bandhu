@@ -25,6 +25,7 @@
     <string name="cart">Cart</string>
     <string name="orders">Orders</string>
     <string name="tool">Selected Tool:</string>
-    <string name="startdate">Start Date</string>
-    <string name="enddate">End Date</string>
+    <string name="startdate">Start Date:</string>
+    <string name="enddate">End Date:</string>
+    <string name="duration">Duration</string>
 </resources>
