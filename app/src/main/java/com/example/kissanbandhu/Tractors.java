@@ -1,8 +1,22 @@
 package com.example.kissanbandhu;
 
+import android.widget.Button;
+
 public class Tractors {
 
     String Tractor, Dealer, Price;
+
+    //Modified
+    Button RentNow;
+
+    public Button getRentNow() {
+        return RentNow;
+    }
+
+    public void setRentNow(Button rentNow) {
+        RentNow = rentNow;
+    }
+    //Till here
 
     public String getTractor() {
         return Tractor;

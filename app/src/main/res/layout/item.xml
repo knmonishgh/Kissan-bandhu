@@ -101,7 +101,7 @@
 
         </LinearLayout>
         <Button
-            android:id="@+id/addtocart"
+            android:id="@+id/rentnow"
             android:layout_width="120dp"
             android:layout_height="50dp"
             android:text="Rent now"

@@ -7,6 +7,7 @@
     android:orientation="vertical"
     tools:context=".buyer_enterdetails">
 
+
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -17,6 +18,11 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_gravity="center_horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -30,12 +36,32 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:id="@+id/tool_name"
+                android:text=""
+                android:textStyle="bold"
+                android:padding="10dp">
+
+            </TextView>
+
+        </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:text="@string/startdate"
                 android:textSize="20dp"
                 android:padding="10dp">
-
             </TextView>
+
+            <Button
+                android:id="@+id/start_date_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Start Date"
+                android:layout_marginTop="32dp"
+                android:layout_marginLeft="32dp"/>
+
 
             <TextView
                 android:layout_width="wrap_content"
@@ -44,8 +70,27 @@
                 android:text="@string/enddate"
                 android:textSize="20dp"
                 android:padding="10dp">
-
             </TextView>
+
+            <Button
+                android:id="@+id/end_date_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="End Date"
+                android:layout_marginTop="32dp"
+                android:layout_marginRight="32dp"
+                android:layout_alignParentEnd="true"/>
+
+            <TextView
+                android:id="@+id/duration_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/duration"
+                android:textSize="20dp"
+                android:padding="10dp">
+            </TextView>
+
 
         </LinearLayout>
 
