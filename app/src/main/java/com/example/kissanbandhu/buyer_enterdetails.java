@@ -5,8 +5,10 @@ import static android.service.controls.ControlsProviderService.TAG;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+
 import android.app.DatePickerDialog;
 import android.content.Context;
+
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -15,10 +17,12 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
@@ -28,6 +32,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
@@ -36,7 +41,8 @@ import java.util.concurrent.TimeUnit;
 public class buyer_enterdetails extends AppCompatActivity {
 
     BottomNavigationView nav;
-    TextView tool;
+
+     TextView tool;
     FirebaseDatabase database;
     DatabaseReference productNameRef, productPriceRef;
     Calendar startCal, endCal;
@@ -54,13 +60,11 @@ public class buyer_enterdetails extends AppCompatActivity {
         nav = findViewById(R.id.nav);
         tool = findViewById(R.id.tool_name);
 
-
         mstartdate = findViewById(R.id.start_date);
         menddate = findViewById(R.id.end_date);
         mduration = findViewById(R.id.duration);
         startCal = Calendar.getInstance();
         endCal = Calendar.getInstance();
-
 
         database = FirebaseDatabase.getInstance();
         productNameRef = database.getReference("Selected_item/NewItem");
@@ -77,7 +81,9 @@ public class buyer_enterdetails extends AppCompatActivity {
             }
         });
 
-        productPriceRef = database.getReference("Selected_item/NewPrice");
+       
+
+ productPriceRef = database.getReference("Selected_item/NewPrice");
         productPriceRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -109,6 +115,9 @@ public class buyer_enterdetails extends AppCompatActivity {
             }
         });
 
+
+        
+
         mstartdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -120,11 +129,13 @@ public class buyer_enterdetails extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 showEndDateDialog(buyer_enterdetails.this);
+
             }
         });
     }
 
-    private void showStartDateDialog(Context context) {
+
+   private void showStartDateDialog(Context context) {
 
         int year = startCal.get(Calendar.YEAR);
         int month = startCal.get(Calendar.MONTH);
@@ -190,5 +201,4 @@ public class buyer_enterdetails extends AppCompatActivity {
     }
 
 }
-
 

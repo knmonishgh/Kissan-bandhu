@@ -48,9 +48,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             @Override
             public void onClick(View view) {
                 String newitem = trac.getTractor();
+
                 String newprice = trac.getPrice();
                 FirebaseDatabase.getInstance().getReference("Selected_item").child("NewItem").setValue(newitem);
                 FirebaseDatabase.getInstance().getReference("Selected_item").child("NewPrice").setValue(newprice);
+
                 Intent intent = new Intent(context, buyer_enterdetails.class);
                 context.startActivity(intent);
             }
