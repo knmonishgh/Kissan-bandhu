@@ -38,6 +38,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/tool_name"
                 android:text=""
+                android:textSize="20dp"
                 android:textStyle="bold"
                 android:padding="10dp">
 
@@ -45,7 +46,19 @@
 
         </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center_horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
             <TextView
+                android:id="@+id/start_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
@@ -54,42 +67,91 @@
                 android:padding="10dp">
             </TextView>
 
-            <Button
-                android:id="@+id/start_date_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Start Date"
-                android:layout_marginTop="32dp"
-                android:layout_marginLeft="32dp"/>
+            <EditText
+                android:id="@+id/start_date"
+                android:layout_width="130dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginLeft="10dp"
+                android:text=""
+                android:hint="Select">
+            </EditText>
 
+                </LinearLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="@string/enddate"
-                android:textSize="20dp"
-                android:padding="10dp">
-            </TextView>
+            </LinearLayout>
 
-            <Button
-                android:id="@+id/end_date_button"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="320dp"
                 android:layout_height="wrap_content"
-                android:text="End Date"
-                android:layout_marginTop="32dp"
-                android:layout_marginRight="32dp"
-                android:layout_alignParentEnd="true"/>
+                android:orientation="vertical"
+                android:layout_gravity="center_horizontal">
 
-            <TextView
-                android:id="@+id/duration_textview"
-                android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/end_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text="@string/end"
+                        android:textSize="20dp"
+                        android:padding="10dp">
+                    </TextView>
+
+                    <EditText
+                        android:id="@+id/end_date"
+                        android:layout_width="130dp"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="18dp"
+                        android:layout_marginLeft="20dp"
+                        android:text=""
+                        android:hint="Select">
+                    </EditText>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="320dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="@string/duration"
-                android:textSize="20dp"
-                android:padding="10dp">
-            </TextView>
+                android:orientation="vertical"
+                android:layout_gravity="center_horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/duration_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text="@string/price"
+                        android:textSize="20dp"
+                        android:padding="10dp">
+                    </TextView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:id="@+id/duration"
+                        android:text=""
+                        android:textSize="20dp"
+                        android:textStyle="bold"
+                        android:padding="10dp">
+                    </TextView>
+
+                </LinearLayout>
+
+            </LinearLayout>
 
 
         </LinearLayout>

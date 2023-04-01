@@ -26,6 +26,8 @@
     <string name="orders">Orders</string>
     <string name="tool">Selected Tool:</string>
     <string name="startdate">Start Date:</string>
-    <string name="enddate">End Date:</string>
     <string name="duration">Duration</string>
+    <string name="end">End Date:</string>
+    <string name="duration_">Duration:</string>
+    <string name="price">Price:</string>
 </resources>
