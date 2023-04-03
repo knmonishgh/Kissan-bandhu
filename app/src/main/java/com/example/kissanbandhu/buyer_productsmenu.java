@@ -37,7 +37,7 @@ public class buyer_productsmenu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_buyer_productsmenu);
         getSupportActionBar().setTitle("BUYER");
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#547AE1")));
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#23863B")));
         database = FirebaseDatabase.getInstance().getReference("Tractors");
         recyclerView = findViewById(R.id.tracList);
         recyclerView.setHasFixedSize(true);

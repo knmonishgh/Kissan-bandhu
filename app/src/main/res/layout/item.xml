@@ -110,7 +110,7 @@
             android:layout_marginTop="100dp"
             android:textSize="15dp"
             android:layout_alignLeft="@+id/img_trac"
-            android:backgroundTint="@color/green_top"/>
+            android:backgroundTint="#DC3E33"/>
 
     </RelativeLayout>
 

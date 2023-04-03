@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".buyer_rentmenu"
+    android:background="#2BA548"
     android:orientation="vertical">
 
     <SearchView
@@ -19,9 +20,18 @@
 
     <LinearLayout
         android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/user_shape"
+        android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="60dp">
+        android:layout_marginTop="40dp">
 
 
         <ImageView
@@ -53,6 +63,7 @@
             android:layout_height="50dp"
             android:text="@string/tractor"
             android:layout_marginLeft="35dp"
+            android:backgroundTint="#DC3E33"
             android:textSize="15dp" />
 
         <Button
@@ -62,7 +73,7 @@
             android:text="@string/trolley"
             android:layout_marginLeft="70dp"
             android:textSize="15dp"
-            />
+            android:backgroundTint="#DC3E33"/>
 
     </LinearLayout>
 
@@ -104,6 +115,7 @@
             android:layout_height="50dp"
             android:text="@string/seeder"
             android:layout_marginLeft="45dp"
+            android:backgroundTint="#DC3E33"
             android:textSize="15dp" />
 
         <Button
@@ -111,6 +123,7 @@
             android:layout_width="140dp"
             android:layout_height="50dp"
             android:text="@string/cultivator"
+            android:backgroundTint="#DC3E33"
             android:layout_marginLeft="65dp"
             android:textSize="15dp" />
 
@@ -129,5 +142,6 @@
 
 
     </RelativeLayout>
+    </LinearLayout>
 
 </LinearLayout>

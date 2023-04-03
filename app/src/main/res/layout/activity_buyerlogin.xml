@@ -6,33 +6,41 @@
     android:orientation="vertical"
     android:gravity="center"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="#2BA548"
     tools:context=".buyerlogin">
 
-    <androidx.cardview.widget.CardView
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="30dp"
-        app:cardBackgroundColor="#471E1E1E">
+        android:layout_marginTop="100dp"
+        android:text="@string/login"
+        android:textSize="40dp"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:textColor="@color/white">
+
+    </TextView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="650dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/user_shape"
+        android:orientation="vertical"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
+
+
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:layout_marginTop="40dp"
             android:layout_gravity="center_horizontal"
-            android:padding="20dp"
-            android:background="#48000000" >
+            android:padding="20dp">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/login"
-                android:textSize="40dp"
-                android:textAlignment="center"
-                android:textStyle="bold"
-                android:textColor="@color/white">
 
-            </TextView>
 
             <EditText
                 android:id="@+id/login_name"
@@ -62,6 +70,7 @@
                 android:id="@+id/genotp_button"
                 android:layout_gravity="center"
                 android:text="@string/generate_otp"
+                android:backgroundTint="#DC3E33"
                 android:textSize="20dp"></Button>
 
             <EditText
@@ -83,11 +92,11 @@
                 android:id="@+id/verifyotp_button"
                 android:layout_gravity="center"
                 android:text="@string/verify_otp"
+                android:backgroundTint="#DC3E33"
                 android:textSize="20dp"></Button>
 
         </LinearLayout>
 
-    </androidx.cardview.widget.CardView>
-
+    </LinearLayout>
 
 </LinearLayout>

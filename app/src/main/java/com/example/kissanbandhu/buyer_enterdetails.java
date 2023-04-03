@@ -46,9 +46,8 @@ public class buyer_enterdetails extends AppCompatActivity {
     FirebaseDatabase database;
     DatabaseReference productNameRef, productPriceRef;
     Calendar startCal, endCal;
-    EditText mstartdate;
-    EditText menddate;
-    TextView mduration;
+    TextView mstartdate, menddate;
+    TextView mprice;
     long days, calculatedPrice;
     int price;
     @Override
@@ -56,13 +55,13 @@ public class buyer_enterdetails extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_buyer_enterdetails);
         getSupportActionBar().setTitle("BUYER");
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#547AE1")));
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#23863B")));
         nav = findViewById(R.id.nav);
         tool = findViewById(R.id.tool_name);
 
         mstartdate = findViewById(R.id.start_date);
         menddate = findViewById(R.id.end_date);
-        mduration = findViewById(R.id.duration);
+        mprice = findViewById(R.id.pricecal);
         startCal = Calendar.getInstance();
         endCal = Calendar.getInstance();
 
@@ -180,7 +179,7 @@ public class buyer_enterdetails extends AppCompatActivity {
                         days = TimeUnit.MILLISECONDS.toDays(durationInMillis);
                         calculatedPrice = days * (long)price;
 
-                        mduration.setText("₹ " + calculatedPrice);
+                        mprice.setText("₹ " + calculatedPrice);
                     }
                 }, year, month, day);
 
@@ -190,7 +189,7 @@ public class buyer_enterdetails extends AppCompatActivity {
 
     static String extractInt(String str)
     {
-        str = str.replaceAll("[^0-9]", " "); // regular expression
+        str = str.replaceAll("[^0-9]", " ");
 
         str = str.replaceAll(" +", " ");
         str = str.trim();
