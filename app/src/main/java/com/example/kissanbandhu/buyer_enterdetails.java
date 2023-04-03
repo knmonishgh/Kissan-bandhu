@@ -5,8 +5,10 @@ import static android.service.controls.ControlsProviderService.TAG;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
+
 import android.app.DatePickerDialog;
+import android.content.Context;
+
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -15,9 +17,12 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CalendarView;
+
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
@@ -27,35 +32,38 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
 public class buyer_enterdetails extends AppCompatActivity {
 
     BottomNavigationView nav;
 
-    TextView tool;
+     TextView tool;
     FirebaseDatabase database;
-    DatabaseReference productNameRef;
-
-    private Button mStartDateButton;
-    private Button mEndDateButton;
-    private TextView mDurationTextView;
-
-    private Calendar mStartCalendar;
-    private Calendar mEndCalendar;
+    DatabaseReference productNameRef, productPriceRef;
+    Calendar startCal, endCal;
+    TextView mstartdate, menddate;
+    TextView mprice;
+    long days, calculatedPrice;
+    int price;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_buyer_enterdetails);
         getSupportActionBar().setTitle("BUYER");
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#547AE1")));
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#23863B")));
         nav = findViewById(R.id.nav);
         tool = findViewById(R.id.tool_name);
-        mStartDateButton = findViewById(R.id.start_date_button);
-        mEndDateButton = findViewById(R.id.end_date_button);
-        mDurationTextView = findViewById(R.id.duration_textview);
-        mDurationTextView = findViewById(R.id.duration_textview);
+
+        mstartdate = findViewById(R.id.start_date);
+        menddate = findViewById(R.id.end_date);
+        mprice = findViewById(R.id.pricecal);
+        startCal = Calendar.getInstance();
+        endCal = Calendar.getInstance();
 
         database = FirebaseDatabase.getInstance();
         productNameRef = database.getReference("Selected_item/NewItem");
@@ -71,6 +79,22 @@ public class buyer_enterdetails extends AppCompatActivity {
                 Log.w(TAG, "Failed to read value.", error.toException());
             }
         });
+
+       
+
+ productPriceRef = database.getReference("Selected_item/NewPrice");
+        productPriceRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                String productPrice = snapshot.getValue(String.class);
+                price = Integer.parseInt(extractInt(productPrice));
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.w(TAG, "Failed to read value.", error.toException());
+            }
+        });
+
 
         nav.setOnItemReselectedListener(new NavigationBarView.OnItemReselectedListener() {
             @Override
@@ -90,52 +114,90 @@ public class buyer_enterdetails extends AppCompatActivity {
             }
         });
 
-        mStartDateButton.setOnClickListener(new View.OnClickListener() {
+
+        
+
+        mstartdate.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                showDatePickerDialog(true);
+            public void onClick(View v) {
+                showStartDateDialog(buyer_enterdetails.this);
             }
         });
 
-        mEndDateButton.setOnClickListener(new View.OnClickListener() {
+        menddate.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                showDatePickerDialog(false);
+            public void onClick(View v) {
+                showEndDateDialog(buyer_enterdetails.this);
+
             }
         });
     }
 
-    private void showDatePickerDialog(final boolean isStartDate) {
-        // Get the current date
-        Calendar calendar = Calendar.getInstance();
-        int year = calendar.get(Calendar.YEAR);
-        int month = calendar.get(Calendar.MONTH);
-        int dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
 
-        // Show the date picker dialog
-        DatePickerDialog datePickerDialog = new DatePickerDialog(buyer_enterdetails.this,
+   private void showStartDateDialog(Context context) {
+
+        int year = startCal.get(Calendar.YEAR);
+        int month = startCal.get(Calendar.MONTH);
+        int day = startCal.get(Calendar.DAY_OF_MONTH);
+
+        DatePickerDialog datePickerDialog = new DatePickerDialog(
+                context,
                 new DatePickerDialog.OnDateSetListener() {
                     @Override
-                    public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-                        // Update the selected date
-                        Calendar selectedCalendar = Calendar.getInstance();
-                        selectedCalendar.set(year, month, day);
+                    public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
 
-                        if (isStartDate) {
-                            mStartCalendar = selectedCalendar;
-                        } else {
-                            mEndCalendar = selectedCalendar;
-                        }
+                        startCal.set(year, monthOfYear, dayOfMonth);
 
-                        // Calculate the duration and display it
-                        if (mStartCalendar != null && mEndCalendar != null) {
-                            long durationMillis = mEndCalendar.getTimeInMillis() - mStartCalendar.getTimeInMillis();
-                            int durationDays = (int) TimeUnit.MILLISECONDS.toDays(durationMillis);
-
-                            mDurationTextView.setText("Duration: " + durationDays + " days");
-                        }
+                        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+                        mstartdate.setText(sdf.format(startCal.getTime()));
                     }
-                }, year, month, dayOfMonth);
+                }, year, month, day);
 
+        datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis() - 1000);
+        datePickerDialog.show();
     }
+
+    private void showEndDateDialog(Context context) {
+
+        int year = endCal.get(Calendar.YEAR);
+        int month = endCal.get(Calendar.MONTH);
+        int day = endCal.get(Calendar.DAY_OF_MONTH);
+
+
+        DatePickerDialog datePickerDialog = new DatePickerDialog(
+                context,
+                new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+
+                        endCal.set(year, monthOfYear, dayOfMonth);
+
+                        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+                        menddate.setText(sdf.format(endCal.getTime()));
+
+                        long durationInMillis = endCal.getTimeInMillis() - startCal.getTimeInMillis();
+                        days = TimeUnit.MILLISECONDS.toDays(durationInMillis);
+                        calculatedPrice = days * (long)price;
+
+                        mprice.setText("₹ " + calculatedPrice);
+                    }
+                }, year, month, day);
+
+        datePickerDialog.getDatePicker().setMinDate(startCal.getTimeInMillis());
+        datePickerDialog.show();
+    }
+
+    static String extractInt(String str)
+    {
+        str = str.replaceAll("[^0-9]", " ");
+
+        str = str.replaceAll(" +", " ");
+        str = str.trim();
+        if (str.equals(""))
+            return "-1";
+
+        return str;
+    }
+
 }
+

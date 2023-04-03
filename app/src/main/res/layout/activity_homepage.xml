@@ -5,36 +5,113 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".homepage"
-    android:orientation="vertical"
-    android:background="@drawable/background">
+    android:background="#2BA548"
+    android:orientation="vertical">
 
-    <ImageView
-        android:id="@+id/imageView"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="100dp"
-        android:gravity='center_horizontal'
-        app:srcCompat="@drawable/backimg"
-        tools:ignore="MissingConstraints"/>
+        android:orientation="vertical"
+        android:layout_gravity="center_horizontal"
+        android:background="#2BA548"
+        android:padding="20dp">
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="68dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="50dp"
+            app:srcCompat="@drawable/newleaf2" />
+
+        <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="WELCOME!"
+        android:textStyle="bold"
+        android:textSize="30dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/imageView6"
+        android:fontFamily="serif"
+        android:textColor="@color/white"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tagline"
+            android:textColor="@color/white"
+            android:fontFamily="serif"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="120dp">
+        </TextView>
+
+    </RelativeLayout>
+
+
+        <GridLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/grid_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/user_shape"
+            android:rowCount="2"
+            android:columnCount="2"
+            android:useDefaultMargins="true">
+
+            <ImageView
+                android:id="@+id/imageView7"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="150dp"
+                android:layout_marginLeft="40dp"
+                android:layout_row="0"
+                android:layout_column="0"
+                app:srcCompat="@drawable/buyers" />
 
     <Button
         android:id="@+id/button3"
-        android:layout_width="206dp"
-        android:layout_height="93dp"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="90dp"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:layout_row="0"
+        android:layout_column="0"
+        android:layout_marginTop="250dp"
+        android:layout_marginLeft="20dp"
         android:text="@string/buyer"
-        android:textSize="26sp" />
+        android:backgroundTint="#DC3E33"
+        android:textColor="@color/white"
+        android:textSize="23sp" />
+
+            <ImageView
+                android:id="@+id/imageView8"
+                android:layout_width="100dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="160dp"
+                android:layout_marginLeft="60dp"
+                android:layout_row="0"
+                android:layout_column="1"
+                app:srcCompat="@drawable/seller" />
 
     <Button
         android:id="@+id/button4"
-        android:layout_width="206dp"
-        android:layout_height="93dp"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="90dp"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="250dp"
+        android:layout_marginLeft="40dp"
+        android:layout_row="0"
+        android:layout_column="1"
+        android:backgroundTint="#DC3E33"
         android:text="SELLER"
-        android:textSize="26sp" />
+        android:textColor="@color/white"
+        android:textSize="23sp" />
+
+        </GridLayout>
+
 
 
 </LinearLayout>

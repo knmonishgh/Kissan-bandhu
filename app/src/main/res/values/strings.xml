@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">KISSAN BANDHU</string>
     <string name="buyer">BUYER</string>
-    <string name="login">Login</string>
+    <string name="login">LOGIN</string>
     <string name="otp">Enter OTP</string>
     <string name="name">Enter Name</string>
     <string name="generate_otp">Generate OTP</string>
@@ -26,6 +26,12 @@
     <string name="orders">Orders</string>
     <string name="tool">Selected Tool:</string>
     <string name="startdate">Start Date:</string>
-    <string name="enddate">End Date:</string>
+
     <string name="duration">Duration</string>
+    <string name="end">End Date:</string>
+    <string name="duration_">Duration:</string>
+    <string name="price">Price:</string>
+    <string name="select_hint">Select</string>
+    <string name="tagline">- Go On, Get Your <i> Happy Farming </i>Out.</string>
+
 </resources>

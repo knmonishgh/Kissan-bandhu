@@ -22,7 +22,7 @@ public class buyer_rentmenu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_buyer_rentmenu);
         getSupportActionBar().setTitle("BUYER");
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#547AE1")));
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#23863B")));
         btntrac = findViewById(R.id.Tractor);
         nav = findViewById(R.id.nav);
         btntrac.setOnClickListener(view ->
