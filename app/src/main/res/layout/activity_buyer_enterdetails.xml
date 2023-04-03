@@ -17,12 +17,17 @@
         android:background="@drawable/user_shape"
         android:orientation="vertical">
 
+
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="320dp"
@@ -90,7 +95,7 @@
                 android:padding="8dp"
                 android:textSize="18dp"
                  android:textStyle="bold"
-                android:hint="Select">
+                android:hint="Select ">
             </TextView>
 
                 </LinearLayout>
@@ -171,13 +176,58 @@
 
                 </LinearLayout>
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/address"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text="@string/add"
+                        android:textSize="20dp"
+                        android:padding="10dp">
+                    </TextView>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="130dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginBottom="30dp"
+                        android:id="@+id/user_address"
+                        android:text=""
+                        android:textSize="17dp"
+                        android:hint="enter here..."
+                        android:textAlignment="center"
+                        android:background="@drawable/custom_edittext"
+                        android:padding="10dp">
+                    </EditText>
+
+                    <Button
+                        android:layout_width="200dp"
+                        android:layout_height="60dp"
+                        android:layout_marginTop="30dp"
+                        android:id="@+id/order_button"
+                        android:layout_gravity="center"
+                        android:text="Place Order"
+                        android:backgroundTint="#DC3E33"
+                        android:textSize="20dp"></Button>
+
+                </LinearLayout>
+
+
             </LinearLayout>
 
 
         </LinearLayout>
 
-    </androidx.cardview.widget.CardView>
+        </ScrollView>
 
+    </androidx.cardview.widget.CardView>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -194,5 +244,8 @@
 
 
     </RelativeLayout>
+
     </LinearLayout>
+
+
 </LinearLayout>
