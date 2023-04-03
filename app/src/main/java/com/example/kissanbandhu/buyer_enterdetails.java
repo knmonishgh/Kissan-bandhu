@@ -8,22 +8,18 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
 import android.content.Context;
-
 import android.content.Intent;
 import android.graphics.Color;
+
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
-
-
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.database.DataSnapshot;
@@ -41,13 +37,13 @@ import java.util.concurrent.TimeUnit;
 public class buyer_enterdetails extends AppCompatActivity {
 
     BottomNavigationView nav;
-
-     TextView tool;
+    TextView tool;
     FirebaseDatabase database;
     DatabaseReference productNameRef, productPriceRef;
     Calendar startCal, endCal;
     TextView mstartdate, menddate;
     TextView mprice;
+    Button address;
     long days, calculatedPrice;
     int price;
     @Override
@@ -64,6 +60,7 @@ public class buyer_enterdetails extends AppCompatActivity {
         mprice = findViewById(R.id.pricecal);
         startCal = Calendar.getInstance();
         endCal = Calendar.getInstance();
+        address = findViewById(R.id.order_button);
 
         database = FirebaseDatabase.getInstance();
         productNameRef = database.getReference("Selected_item/NewItem");
@@ -131,6 +128,14 @@ public class buyer_enterdetails extends AppCompatActivity {
 
             }
         });
+
+        address.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
     }
 
 
