@@ -22,6 +22,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -31,6 +33,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
@@ -42,8 +45,9 @@ public class buyer_enterdetails extends AppCompatActivity {
     DatabaseReference productNameRef, productPriceRef;
     Calendar startCal, endCal;
     TextView mstartdate, menddate;
-    TextView mprice;
-    Button address;
+    TextView mprice, testname;
+    Button order;
+    EditText address;
     long days, calculatedPrice;
     int price;
     @Override
@@ -60,8 +64,12 @@ public class buyer_enterdetails extends AppCompatActivity {
         mprice = findViewById(R.id.pricecal);
         startCal = Calendar.getInstance();
         endCal = Calendar.getInstance();
-        address = findViewById(R.id.order_button);
+        order = findViewById(R.id.order_button);
+        address = findViewById(R.id.user_address);
+        testname = findViewById(R.id.testname);
 
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
         database = FirebaseDatabase.getInstance();
         productNameRef = database.getReference("Selected_item/NewItem");
         productNameRef.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -129,13 +137,19 @@ public class buyer_enterdetails extends AppCompatActivity {
             }
         });
 
-        address.setOnClickListener(new View.OnClickListener() {
+        order.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String getAddress = address.getText().toString();
+                String name = currentUser.getDisplayName();
 
+//                HashMap<String, Object> hashMap = new HashMap<>();
+//                hashMap.put("name",name);
+//                hashMap.put("address",getAddress);
+
+                testname.setText(name);
             }
         });
-
     }
 
 
