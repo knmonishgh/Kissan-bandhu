@@ -21,7 +21,7 @@ public class rentcart extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rentcart);
         getSupportActionBar().setTitle("CART");
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#547AE1")));
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#23863B")));
         nav = findViewById(R.id.nav);
         nav.setOnItemReselectedListener(new NavigationBarView.OnItemReselectedListener(){
             @Override

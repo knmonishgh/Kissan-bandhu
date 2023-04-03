@@ -17,9 +17,11 @@ public class splash_screen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().hide();
 
         TextView textView = findViewById(R.id.textView);
-        //ImageView imageView = findViewById(R.id.imageView5);
+        ImageView imageView = findViewById(R.id.imageView5);
         Animation fadeIn = AnimationUtils.loadAnimation(this, R.anim.fade_in);
         Animation fadeOut = AnimationUtils.loadAnimation(this, R.anim.fade_out);
 
@@ -31,7 +33,7 @@ public class splash_screen extends AppCompatActivity {
 
             @Override
             public void onAnimationEnd(Animation animation) {
-                //imageView.startAnimation(fadeOut);
+                imageView.startAnimation(fadeOut);
                 textView.startAnimation(fadeOut);
             }
 
@@ -58,7 +60,7 @@ public class splash_screen extends AppCompatActivity {
         });
 
         textView.startAnimation(fadeIn);
-        //imageView.startAnimation(fadeIn);
+        imageView.startAnimation(fadeIn);
     }
 
 }

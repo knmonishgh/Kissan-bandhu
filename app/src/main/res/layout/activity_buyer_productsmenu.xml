@@ -5,7 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".buyer_productsmenu"
-    android:background="@color/ash_top">
+    android:background="#2BA548">
+
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/tracList"

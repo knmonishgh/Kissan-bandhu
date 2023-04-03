@@ -8,22 +8,18 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
 import android.content.Context;
-
 import android.content.Intent;
 import android.graphics.Color;
+
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
-
-
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.database.DataSnapshot;
@@ -41,14 +37,13 @@ import java.util.concurrent.TimeUnit;
 public class buyer_enterdetails extends AppCompatActivity {
 
     BottomNavigationView nav;
-
-     TextView tool;
+    TextView tool;
     FirebaseDatabase database;
     DatabaseReference productNameRef, productPriceRef;
     Calendar startCal, endCal;
-    EditText mstartdate;
-    EditText menddate;
-    TextView mduration;
+    TextView mstartdate, menddate;
+    TextView mprice;
+    Button address;
     long days, calculatedPrice;
     int price;
     @Override
@@ -56,15 +51,16 @@ public class buyer_enterdetails extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_buyer_enterdetails);
         getSupportActionBar().setTitle("BUYER");
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#547AE1")));
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#23863B")));
         nav = findViewById(R.id.nav);
         tool = findViewById(R.id.tool_name);
 
         mstartdate = findViewById(R.id.start_date);
         menddate = findViewById(R.id.end_date);
-        mduration = findViewById(R.id.duration);
+        mprice = findViewById(R.id.pricecal);
         startCal = Calendar.getInstance();
         endCal = Calendar.getInstance();
+        address = findViewById(R.id.order_button);
 
         database = FirebaseDatabase.getInstance();
         productNameRef = database.getReference("Selected_item/NewItem");
@@ -132,6 +128,14 @@ public class buyer_enterdetails extends AppCompatActivity {
 
             }
         });
+
+        address.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
     }
 
 
@@ -180,7 +184,7 @@ public class buyer_enterdetails extends AppCompatActivity {
                         days = TimeUnit.MILLISECONDS.toDays(durationInMillis);
                         calculatedPrice = days * (long)price;
 
-                        mduration.setText("₹ " + calculatedPrice);
+                        mprice.setText("₹ " + calculatedPrice);
                     }
                 }, year, month, day);
 
@@ -190,7 +194,7 @@ public class buyer_enterdetails extends AppCompatActivity {
 
     static String extractInt(String str)
     {
-        str = str.replaceAll("[^0-9]", " "); // regular expression
+        str = str.replaceAll("[^0-9]", " ");
 
         str = str.replaceAll(" +", " ");
         str = str.trim();
