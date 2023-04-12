@@ -114,9 +114,6 @@ public class buyer_enterdetails extends AppCompatActivity {
                     case R.id.homenav:
                         startActivity(new Intent(buyer_enterdetails.this, buyerhomepage.class));
                         break;
-                    case R.id.cartnav:
-                        startActivity(new Intent(buyer_enterdetails.this, rentcart.class));
-                        break;
                     case R.id.ordersnav:
                         startActivity(new Intent(buyer_enterdetails.this, orders.class));
                         break;
@@ -142,33 +139,30 @@ public class buyer_enterdetails extends AppCompatActivity {
             }
         });
 
+        String getAddress = address.getText().toString();
+        String phone = currentUser.getPhoneNumber();
+        DatabaseReference userRef = database.getReference("buyer_login").child("users").child(phone).child("name");
+
+        userRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                value = dataSnapshot.getValue(String.class);
+
+            }
+
+
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // Handle errors here
+                Log.w(TAG, "Failed to read value.", databaseError.toException());
+            }
+        });
         order.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                  String getAddress = address.getText().toString();
-                  String phone = currentUser.getPhoneNumber();
-                DatabaseReference userRef = database.getReference("buyer_login").child("users").child(phone).child("name");
 
-
-
-                userRef.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        // Get the value of the data item
-                        value = dataSnapshot.getValue(String.class);
-
-                        // Do something with the value
-                        testname.setText(value);
-                    }
-
-
-
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-                        // Handle errors here
-                        Log.w(TAG, "Failed to read value.", databaseError.toException());
-                    }
-                });
 
                 HashMap<String, Object> hashMap = new HashMap<>();
                 hashMap.put("name",value);
@@ -178,6 +172,11 @@ public class buyer_enterdetails extends AppCompatActivity {
                 hashMap.put("duration",days);
 
                 orderRef.child(phone).child(productName).setValue(hashMap);
+
+                Intent i = new Intent(buyer_enterdetails.this, buyer_orderdetails.class);
+                startActivity(i);
+
+                address.setText("");
             }
         });
     }
