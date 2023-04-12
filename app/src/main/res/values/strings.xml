@@ -34,5 +34,6 @@
     <string name="select_hint">Select</string>
     <string name="tagline">- Go On, Get Your <i> Happy Farming </i>Out.</string>
     <string name="add">Enter your address:</string>
+    <string name="enter_number">Enter Number</string>
 
 </resources>

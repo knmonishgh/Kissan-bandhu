@@ -131,12 +131,13 @@ public class buyerlogin extends AppCompatActivity {
                             startActivity(new Intent(buyerlogin.this, buyerhomepage.class));
                             String getName = name.getText().toString();
                             String getPhone = phone.getText().toString();
+                            String key = mRef.push().getKey();
 
                             HashMap<String, Object> hashMap = new HashMap<>();
                             hashMap.put("name",getName);
                             hashMap.put("phone",getPhone);
 
-                            mRef.child("users").child(getName).setValue(hashMap);
+                            mRef.child("users").child("+91"+getPhone).setValue(hashMap);
                             otp.setText("");
                         }
                         else{

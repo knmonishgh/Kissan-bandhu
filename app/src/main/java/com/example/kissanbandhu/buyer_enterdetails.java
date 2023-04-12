@@ -72,6 +72,10 @@ public class buyer_enterdetails extends AppCompatActivity {
         FirebaseUser currentUser = mAuth.getCurrentUser();
         database = FirebaseDatabase.getInstance();
         productNameRef = database.getReference("Selected_item/NewItem");
+
+
+
+
         productNameRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -140,14 +144,32 @@ public class buyer_enterdetails extends AppCompatActivity {
         order.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String getAddress = address.getText().toString();
-                String name = currentUser.getDisplayName();
+//                String getAddress = address.getText().toString();
+                  String phone = currentUser.getPhoneNumber();
+                DatabaseReference userRef = database.getReference("buyer_login").child("users").child(phone).child("name");
+//
+////                HashMap<String, Object> hashMap = new HashMap<>();
+////                hashMap.put("name",name);
+////                hashMap.put("address",getAddress);
+//
+                //testname.setText(phone);
+                userRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        // Get the value of the data item
+                        String value = dataSnapshot.getValue(String.class);
 
-//                HashMap<String, Object> hashMap = new HashMap<>();
-//                hashMap.put("name",name);
-//                hashMap.put("address",getAddress);
+                        // Do something with the value
+                        testname.setText(value);
+                    }
 
-                testname.setText(name);
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                        // Handle errors here
+                        Log.w(TAG, "Failed to read value.", databaseError.toException());
+                    }
+                });
+
             }
         });
     }
