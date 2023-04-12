@@ -35,5 +35,10 @@
     <string name="tagline">- Go On, Get Your <i> Happy Farming </i>Out.</string>
     <string name="add">Enter your address:</string>
     <string name="enter_number">Enter Number</string>
+    <string name="toolname">Tool:</string>
+    <string name="durationn">Duration:</string>
+    <string name="pricee">Price:</string>
+    <string name="dname">Dealer Name:</string>
+    <string name="dcontact">Dealer Contact No:</string>
 
 </resources>

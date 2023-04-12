@@ -80,9 +80,7 @@ public class buyer_productsmenu extends AppCompatActivity {
                     case R.id.homenav:
                         startActivity(new Intent(buyer_productsmenu.this,buyerhomepage.class));
                         break;
-                    case R.id.cartnav:
-                        startActivity(new Intent(buyer_productsmenu.this,rentcart.class));
-                        break;
+
                     case R.id.ordersnav:
                         startActivity(new Intent(buyer_productsmenu.this,orders.class));
                         break;
