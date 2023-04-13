@@ -15,6 +15,8 @@ import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -27,6 +29,8 @@ public class buyer_orderdetails extends AppCompatActivity {
     FirebaseDatabase database;
     DatabaseReference productNameRef, durationRef, priceRef, dealerNameRef;
     String productName, dealerName, duration, price;
+    //String phone;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,8 +44,10 @@ public class buyer_orderdetails extends AppCompatActivity {
         dname = findViewById(R.id.dealer_name);
         dcontact = findViewById(R.id.dealer_contact);
 
-        //Tool Name
-        productNameRef = database.getReference("Selected_item/NewItem");
+//        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+//        FirebaseUser currentUser = mAuth.getCurrentUser();
+        database = FirebaseDatabase.getInstance();
+        productNameRef = database.getReference("Orders/phone/productName/tool");
         productNameRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -57,12 +63,12 @@ public class buyer_orderdetails extends AppCompatActivity {
 
 
         //Duration
-        durationRef = database.getReference("Orders/phone/duration");
+        durationRef = database.getReference("Orders/phone/productName/duration");
         durationRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 duration = snapshot.getValue(String.class);
-                nduration.setText(duration);
+                nduration.setText(duration+" days");
             }
 
             @Override
@@ -74,7 +80,7 @@ public class buyer_orderdetails extends AppCompatActivity {
 
 
         //Price
-        priceRef = database.getReference("Orders/phone/price");
+        priceRef = database.getReference("Orders/phone/productName/price");
         priceRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
