@@ -49,6 +49,7 @@ public class buyer_enterdetails extends AppCompatActivity {
     Button order;
     EditText address;
     String value, productName;
+    String phone;
     long days, calculatedPrice;
     int price;
     @Override
@@ -139,8 +140,8 @@ public class buyer_enterdetails extends AppCompatActivity {
             }
         });
 
-        String getAddress = address.getText().toString();
-        String phone = currentUser.getPhoneNumber();
+
+        phone = currentUser.getPhoneNumber();
         DatabaseReference userRef = database.getReference("buyer_login").child("users").child(phone).child("name");
 
         userRef.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -151,8 +152,6 @@ public class buyer_enterdetails extends AppCompatActivity {
 
             }
 
-
-
             @Override
             public void onCancelled(DatabaseError databaseError) {
                 // Handle errors here
@@ -162,6 +161,8 @@ public class buyer_enterdetails extends AppCompatActivity {
         order.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String getAddress = address.getText().toString();
+
 
 
                 HashMap<String, Object> hashMap = new HashMap<>();
