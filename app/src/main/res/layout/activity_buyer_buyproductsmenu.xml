@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".buyer_productsmenu"
+    tools:context=".buyer_buyproductsmenu"
     android:background="#2BA548">
 
     <LinearLayout
@@ -17,7 +17,7 @@
         android:orientation="vertical">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/tracList"
+        android:id="@+id/seedList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -45,5 +45,4 @@
 
 
     </RelativeLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

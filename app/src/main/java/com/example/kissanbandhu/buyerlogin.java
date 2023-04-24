@@ -114,7 +114,7 @@ public class buyerlogin extends AppCompatActivity {
         }
     };
 
-    //till here number verification
+
     private void verifycode(String Code) {
         PhoneAuthCredential credential = PhoneAuthProvider.getCredential(verificationid, Code);
         signinbycredentials(credential);
@@ -150,5 +150,3 @@ public class buyerlogin extends AppCompatActivity {
 
     }
 }
-
-//hello

@@ -13,9 +13,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
-public class buyer_rentmenu extends AppCompatActivity {
+public class buyer_buyequipmenu extends AppCompatActivity {
 
-    private Button btntrac;
+    private Button btnseed;
     BottomNavigationView nav;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,11 +23,11 @@ public class buyer_rentmenu extends AppCompatActivity {
         setContentView(R.layout.activity_buyer_rentmenu);
         getSupportActionBar().setTitle("BUYER");
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#23863B")));
-        btntrac = findViewById(R.id.Tractor);
+        btnseed = findViewById(R.id.seeder);
         nav = findViewById(R.id.nav);
-        btntrac.setOnClickListener(view ->
+        btnseed.setOnClickListener(view ->
         {
-            Intent i = new Intent(buyer_rentmenu.this, buyer_productsmenu.class);
+            Intent i = new Intent(buyer_buyequipmenu.this, buyer_buyproductsmenu.class);
             startActivity(i);
         });
 
@@ -37,10 +37,10 @@ public class buyer_rentmenu extends AppCompatActivity {
                 switch (item.getItemId()){
 
                     case R.id.homenav:
-                        startActivity(new Intent(buyer_rentmenu.this,buyerhomepage.class));
+                        startActivity(new Intent(buyer_buyequipmenu.this,buyerhomepage.class));
                         break;
                     case R.id.ordersnav:
-                        startActivity(new Intent(buyer_rentmenu.this,orders.class));
+                        startActivity(new Intent(buyer_buyequipmenu.this,orders.class));
                         break;
                 }
             }

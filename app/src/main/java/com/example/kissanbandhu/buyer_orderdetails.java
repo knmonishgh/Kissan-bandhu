@@ -29,14 +29,13 @@ public class buyer_orderdetails extends AppCompatActivity {
     FirebaseDatabase database;
     DatabaseReference productNameRef, durationRef, priceRef, dealerNameRef;
     String productName, dealerName, duration, price;
-    //String phone;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_buyer_orderdetails);
         getSupportActionBar().setTitle("ORDER DETAILS");
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#547AE1")));
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#23863B")));
         nav = findViewById(R.id.nav);
         ntool = findViewById(R.id.toolname);
         nduration = findViewById(R.id.duration_days);
@@ -44,8 +43,7 @@ public class buyer_orderdetails extends AppCompatActivity {
         dname = findViewById(R.id.dealer_name);
         dcontact = findViewById(R.id.dealer_contact);
 
-//        FirebaseAuth mAuth = FirebaseAuth.getInstance();
-//        FirebaseUser currentUser = mAuth.getCurrentUser();
+
         database = FirebaseDatabase.getInstance();
         productNameRef = database.getReference("Orders/phone/productName/tool");
         productNameRef.addListenerForSingleValueEvent(new ValueEventListener() {
