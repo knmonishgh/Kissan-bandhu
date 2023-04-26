@@ -28,7 +28,7 @@ public class buyer_orderdetails extends AppCompatActivity {
     TextView ntool, nduration, nprice, dname, dcontact;
     FirebaseDatabase database;
     DatabaseReference productNameRef, durationRef, priceRef, dealerNameRef;
-    String productName, dealerName, duration, price, phone;
+    String dealerName, duration, price, phone;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,83 +47,56 @@ public class buyer_orderdetails extends AppCompatActivity {
         FirebaseUser currentUser = mAuth.getCurrentUser();
         phone = currentUser.getPhoneNumber();
         database = FirebaseDatabase.getInstance();
-        productNameRef = database.getReference("Orders").child(phone);
-
-        productNameRef.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                // Retrieve the product name from the snapshot
-                String productName = snapshot.getValue(String.class);
-
-                // Set the product name in a UI element
-                ntool.setText(productName);
-
-                // Retrieve the phone number of the current user from your authentication system
-                String currentUserPhoneNumber = phone;
-
-                // Construct a reference to the order for the current user's phone number and product name
-                DatabaseReference orderRef = FirebaseDatabase.getInstance()
-                        .getReference("Orders")
-                        .child(currentUserPhoneNumber)
-                        .child(productName);
-
-                // Attach a listener to the order reference to retrieve the tool value
-                orderRef.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        // Retrieve the tool value from the snapshot
-                        String tool = snapshot.child("tool").getValue(String.class);
-
-                        // Set the tool value in a UI element
-                        ntool.setText(tool);
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-                        Log.w(TAG, "Failed to read value.", error.toException());
-                    }
-                });
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Log.w(TAG, "Failed to read value.", error.toException());
-            }
-        });
+//        productNameRef = database.getReference("Orders").child(phone);
+//
+//        productNameRef.addListenerForSingleValueEvent(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//
+//                String productName = snapshot.getValue(String.class);
+//                ntool.setText(productName);
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//                Log.w(TAG, "Failed to read value.", error.toException());
+//            }
+//        });
 
 
 
         //Duration
-        durationRef = database.getReference("Orders/phone/productName/duration");
-        durationRef.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                duration = snapshot.getValue(String.class);
-                nduration.setText(duration+" days");
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Log.w(TAG, "Failed to read value.", error.toException());
-            }
-        });
+//        durationRef = database.getReference("Orders/phone/productName/duration");
+//        durationRef.addListenerForSingleValueEvent(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                duration = snapshot.getValue(String.class);
+//                nduration.setText(duration+" days");
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//                Log.w(TAG, "Failed to read value.", error.toException());
+//            }
+//        });
 
 
 
         //Price
-        priceRef = database.getReference("Orders/phone/productName/price");
-        priceRef.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                price = snapshot.getValue(String.class);
-                nprice.setText(price);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Log.w(TAG, "Failed to read value.", error.toException());
-            }
-        });
+//        priceRef = database.getReference("Orders/phone/productName/price");
+//        priceRef.addListenerForSingleValueEvent(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                price = snapshot.getValue(String.class);
+//                nprice.setText(price);
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//                Log.w(TAG, "Failed to read value.", error.toException());
+//            }
+//        });
 
 
         //Dealer Name

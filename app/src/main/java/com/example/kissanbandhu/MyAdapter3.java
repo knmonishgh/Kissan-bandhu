@@ -29,7 +29,7 @@ public class MyAdapter3 extends RecyclerView.Adapter<MyAdapter3.MyViewHolder> {
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(context).inflate(R.layout.item2,parent,false);
+        View v = LayoutInflater.from(context).inflate(R.layout.item3,parent,false);
         return  new MyViewHolder(v);
     }
 
@@ -47,9 +47,11 @@ public class MyAdapter3 extends RecyclerView.Adapter<MyAdapter3.MyViewHolder> {
                 String newitem3 = pest.getFertilizer();
                 String newdealer3 =pest.getDealer();
                 String newprice3 = pest.getPrice();
+                String newnumber3 = pest.getContact_no();
                 FirebaseDatabase.getInstance().getReference("Selected_item3").child("NewItem3").setValue(newitem3);
                 FirebaseDatabase.getInstance().getReference("Selected_item3").child("NewPrice3").setValue(newprice3);
                 FirebaseDatabase.getInstance().getReference("Selected_item3").child("NewDealer3").setValue(newdealer3);
+                FirebaseDatabase.getInstance().getReference("Selected_item3").child("NewNumber3").setValue(newnumber3);
 
                 Intent intent = new Intent(context, buyer_orderdetails2.class);
                 context.startActivity(intent);

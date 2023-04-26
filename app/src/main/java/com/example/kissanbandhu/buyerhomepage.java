@@ -37,7 +37,7 @@ public class buyerhomepage extends AppCompatActivity {
             startActivity(i);
         });
 
-        btnbuy1.setOnClickListener(view -> {
+        btnbuy2.setOnClickListener(view -> {
             Intent i = new Intent(buyerhomepage.this, buyer_buypest.class);
             startActivity(i);
         });
