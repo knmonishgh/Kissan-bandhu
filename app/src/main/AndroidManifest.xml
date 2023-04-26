@@ -12,13 +12,22 @@
         android:theme="@style/Theme.KISSANBANDHU"
         tools:targetApi="31">
         <activity
+            android:name=".buyer_buyorder_details"
+            android:exported="false" />
+        <activity
+            android:name=".buyer_buyproductsmenu"
+            android:exported="false" />
+        <activity
+            android:name=".buyer_buyequipmenu"
+            android:exported="false" />
+        <activity
             android:name=".splash_screen"
             android:exported="true">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".buyer_orderdetails"
@@ -28,9 +37,6 @@
             android:exported="false" />
         <activity
             android:name=".orders"
-            android:exported="false" />
-        <activity
-            android:name=".rentcart"
             android:exported="false" />
         <activity
             android:name=".buyer_productsmenu"
@@ -46,13 +52,10 @@
             android:exported="false" />
         <activity
             android:name=".homepage"
-            android:exported="true">
-
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".MainActivity"
-            android:exported="false">
-        </activity>
+            android:exported="false" />
     </application>
 
 </manifest>

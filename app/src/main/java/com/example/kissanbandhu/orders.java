@@ -30,9 +30,7 @@ public class orders extends AppCompatActivity {
                     case R.id.homenav:
                         startActivity(new Intent(orders.this,buyerhomepage.class));
                         break;
-                    case R.id.cartnav:
-                        startActivity(new Intent(orders.this,rentcart.class));
-                        break;
+
                     case R.id.ordersnav:
                         startActivity(new Intent(orders.this,orders.class));
                         break;

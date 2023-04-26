@@ -2,24 +2,22 @@ package com.example.kissanbandhu;
 
 import android.widget.Button;
 
-public class Tractors {
+public class Seeders {
+    String Seeder, Dealer, Price;
 
-    String Tractor, Dealer, Price;
+    //Modified
+    Button OrderNow;
 
-
-    Button RentNow;
-
-    public Button getRentNow() {
-        return RentNow;
+    public Button getOrderNow() {
+        return OrderNow;
     }
 
-    public void setRentNow(Button rentNow) {
-        RentNow = rentNow;
+    public void setOrderNow(Button orderNow) {
+        OrderNow = orderNow;
     }
 
-
-    public String getTractor() {
-        return Tractor;
+    public String getSeeder() {
+        return Seeder;
     }
 
     public String getDealer() {
@@ -30,8 +28,8 @@ public class Tractors {
         return Price;
     }
 
-    public void setTractor(String tractor) {
-        Tractor = tractor;
+    public void setSeeder(String seeder) {
+        Seeder = seeder;
     }
 
     public void setDealer(String dealer) {

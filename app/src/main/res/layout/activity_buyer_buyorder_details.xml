@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#2BA548"
-    tools:context=".buyer_orderdetails"
+    tools:context=".buyer_buyorder_details"
     android:orientation="horizontal">
 
     <LinearLayout
@@ -31,34 +31,6 @@
                 android:layout_gravity="center_horizontal"
                 android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="10dp"
-                    android:text="@string/toolname"
-                    android:textSize="20dp">
-
-                </TextView>
-
-                <TextView
-                    android:id="@+id/toolname"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="10dp"
-                    android:text=""
-                    android:textSize="20dp"
-                    android:textStyle="bold">
-
-                </TextView>
-
-            </LinearLayout>
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -69,13 +41,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="10dp"
-                        android:text="@string/durationn"
+                        android:text="@string/toolname"
                         android:textSize="20dp">
 
                     </TextView>
 
                     <TextView
-                        android:id="@+id/duration_days"
+                        android:id="@+id/sdtoolname"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="10dp"
@@ -86,6 +58,7 @@
                     </TextView>
 
                 </LinearLayout>
+
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -103,7 +76,7 @@
                     </TextView>
 
                     <TextView
-                        android:id="@+id/price_rs"
+                        android:id="@+id/sdprice_rs"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="10dp"
@@ -131,7 +104,7 @@
                     </TextView>
 
                     <TextView
-                        android:id="@+id/dealer_name"
+                        android:id="@+id/sddealer_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="10dp"
@@ -159,7 +132,7 @@
                     </TextView>
 
                     <TextView
-                        android:id="@+id/dealer_contact"
+                        android:id="@+id/sddealer_contact"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="10dp"
@@ -196,6 +169,5 @@
 
 
     </RelativeLayout>
-
     </LinearLayout>
 </LinearLayout>
