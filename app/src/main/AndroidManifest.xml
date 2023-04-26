@@ -12,13 +12,22 @@
         android:theme="@style/Theme.KISSANBANDHU"
         tools:targetApi="31">
         <activity
-            android:name=".buyer_buyorder_details"
+            android:name=".buyer_orderdetails3"
             android:exported="false" />
         <activity
-            android:name=".buyer_buyproductsmenu"
+            android:name=".buyer_productsmenu3"
             android:exported="false" />
         <activity
-            android:name=".buyer_buyequipmenu"
+            android:name=".buyer_buypest"
+            android:exported="false" />
+        <activity
+            android:name=".buyer_orderdetails2"
+            android:exported="false" />
+        <activity
+            android:name=".buyer_productsmenu2"
+            android:exported="false" />
+        <activity
+            android:name=".buyer_buymenu"
             android:exported="false" />
         <activity
             android:name=".splash_screen"

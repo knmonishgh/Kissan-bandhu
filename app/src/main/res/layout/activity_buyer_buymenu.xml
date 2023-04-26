@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".buyer_buyequipmenu"
+    tools:context=".buyer_buymenu"
     android:background="#2BA548"
     android:orientation="vertical">
 

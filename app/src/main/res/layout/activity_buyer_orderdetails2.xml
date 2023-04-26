@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#2BA548"
-    tools:context=".buyer_buyorder_details"
+    tools:context=".buyer_orderdetails2"
     android:orientation="horizontal">
 
     <LinearLayout

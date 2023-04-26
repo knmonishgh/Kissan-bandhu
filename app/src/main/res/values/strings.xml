@@ -40,5 +40,10 @@
     <string name="pricee">Price:</string>
     <string name="dname">Dealer Name:</string>
     <string name="dcontact">Dealer Contact No:</string>
+    <string name="atabron">Atabron</string>
+    <string name="pestfix">PestFix</string>
+    <string name="actara">Actara</string>
+    <string name="virus">Virus-G</string>
+    <string name="pestname">Pesticide:</string>
 
 </resources>
