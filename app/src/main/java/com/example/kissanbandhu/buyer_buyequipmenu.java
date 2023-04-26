@@ -20,7 +20,7 @@ public class buyer_buyequipmenu extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_buyer_rentmenu);
+        setContentView(R.layout.activity_buyer_buyequipmenu);
         getSupportActionBar().setTitle("BUYER");
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#23863B")));
         btnseed = findViewById(R.id.seeder);

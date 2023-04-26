@@ -75,6 +75,7 @@ public class buyer_enterdetails extends AppCompatActivity {
         database = FirebaseDatabase.getInstance();
         productNameRef = database.getReference("Selected_item/NewItem");
         orderRef = database.getReference("Orders");
+        String phone = currentUser.getPhoneNumber();
 
 
 
@@ -141,7 +142,7 @@ public class buyer_enterdetails extends AppCompatActivity {
         });
 
 
-        phone = currentUser.getPhoneNumber();
+
         DatabaseReference userRef = database.getReference("buyer_login").child("users").child(phone).child("name");
 
         userRef.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -162,9 +163,6 @@ public class buyer_enterdetails extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String getAddress = address.getText().toString();
-
-
-
                 HashMap<String, Object> hashMap = new HashMap<>();
                 hashMap.put("name",value);
                 hashMap.put("address",getAddress);
@@ -172,7 +170,7 @@ public class buyer_enterdetails extends AppCompatActivity {
                 hashMap.put("price",calculatedPrice);
                 hashMap.put("duration",days);
 
-                orderRef.child(phone).child(productName).setValue(hashMap);
+                orderRef.child(productName).setValue(hashMap);
 
                 Intent i = new Intent(buyer_enterdetails.this, buyer_orderdetails.class);
                 startActivity(i);

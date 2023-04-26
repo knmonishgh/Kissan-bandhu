@@ -19,7 +19,7 @@ public class buyer_buyorder_details extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_buyer_rentmenu);
+        setContentView(R.layout.activity_buyer_buyorder_details);
         getSupportActionBar().setTitle("BUYER");
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#23863B")));
         nav = findViewById(R.id.nav);
