@@ -2,8 +2,9 @@ package com.example.kissanbandhu;
 
 import android.widget.Button;
 
-public class Seeders {
-    String Seeder, Dealer, Price, Contact_no;
+public class Pesticides {
+
+    String Fertilizer, Dealer, Price, Contact_no;
 
     //Modified
     Button OrderNow;
@@ -24,8 +25,8 @@ public class Seeders {
         OrderNow = orderNow;
     }
 
-    public String getSeeder() {
-        return Seeder;
+    public String getFertilizer() {
+        return Fertilizer;
     }
 
     public String getDealer() {
@@ -36,8 +37,8 @@ public class Seeders {
         return Price;
     }
 
-    public void setSeeder(String seeder) {
-        Seeder = seeder;
+    public void setFertilizer(String fertilizer) {
+        Fertilizer = fertilizer;
     }
 
     public void setDealer(String dealer) {

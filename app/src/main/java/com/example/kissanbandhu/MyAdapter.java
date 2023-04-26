@@ -44,6 +44,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         holder.Tractor.setText(trac.getTractor());
         holder.Dealer.setText(trac.getDealer());
         holder.Price.setText(trac.getPrice());
+        holder.Contact_no.setText(trac.getContact_no());
         holder.RentNow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -71,7 +72,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     public static class MyViewHolder extends RecyclerView.ViewHolder{
 
         Button RentNow;
-        TextView Tractor, Dealer, Price;
+        TextView Tractor, Dealer, Price, Contact_no;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -79,6 +80,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             Tractor= itemView.findViewById(R.id.tvfirstName);
             Dealer = itemView.findViewById(R.id.tvlastName);
             Price = itemView.findViewById(R.id.tvage);
+            Contact_no = itemView.findViewById(R.id.tvnumber);
             RentNow = itemView.findViewById(R.id.rentnow);
         }
     }

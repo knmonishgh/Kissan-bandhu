@@ -15,13 +15,13 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
-public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder> {
+public class MyAdapter3 extends RecyclerView.Adapter<MyAdapter3.MyViewHolder> {
 
     Context context;
-    ArrayList<Seeders> list;
+    ArrayList<Pesticides> list;
 
 
-    public MyAdapter2(Context context, ArrayList<Seeders> list) {
+    public MyAdapter3(Context context, ArrayList<Pesticides> list) {
         this.context = context;
         this.list = list;
     }
@@ -36,20 +36,20 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
-        Seeders seed = list.get(position);
-        holder.Seeder.setText(seed.getSeeder());
-        holder.Dealer.setText(seed.getDealer());
-        holder.Price.setText(seed.getPrice());
-        holder.Contact_no.setText(seed.getContact_no());
+        Pesticides pest = list.get(position);
+        holder.Fertilizer.setText(pest.getFertilizer());
+        holder.Dealer.setText(pest.getDealer());
+        holder.Price.setText(pest.getPrice());
+        holder.Contact_no.setText(pest.getContact_no());
         holder.OrderNow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String newitem2 = seed.getSeeder();
-                String newdealer2 = seed.getDealer();
-                String newprice2 = seed.getPrice();
-                FirebaseDatabase.getInstance().getReference("Selected_item2").child("NewItem2").setValue(newitem2);
-                FirebaseDatabase.getInstance().getReference("Selected_item2").child("NewPrice2").setValue(newprice2);
-                FirebaseDatabase.getInstance().getReference("Selected_item2").child("NewDealer2").setValue(newdealer2);
+                String newitem3 = pest.getFertilizer();
+                String newdealer3 =pest.getDealer();
+                String newprice3 = pest.getPrice();
+                FirebaseDatabase.getInstance().getReference("Selected_item3").child("NewItem3").setValue(newitem3);
+                FirebaseDatabase.getInstance().getReference("Selected_item3").child("NewPrice3").setValue(newprice3);
+                FirebaseDatabase.getInstance().getReference("Selected_item3").child("NewDealer3").setValue(newdealer3);
 
                 Intent intent = new Intent(context, buyer_orderdetails2.class);
                 context.startActivity(intent);
@@ -68,15 +68,15 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder> {
     public static class MyViewHolder extends RecyclerView.ViewHolder{
 
         Button OrderNow;
-        TextView Seeder, Dealer, Price, Contact_no;
+        TextView Fertilizer, Dealer, Price, Contact_no;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            Seeder= itemView.findViewById(R.id.sdfirstName);
-            Dealer = itemView.findViewById(R.id.sdlastName);
-            Price = itemView.findViewById(R.id.sdage);
-            Contact_no = itemView.findViewById(R.id.sdnumber);
+            Fertilizer= itemView.findViewById(R.id.psfirstName);
+            Dealer = itemView.findViewById(R.id.pslastName);
+            Price = itemView.findViewById(R.id.psage);
+            Contact_no = itemView.findViewById(R.id.psnumber);
             OrderNow = itemView.findViewById(R.id.ordernow);
         }
     }

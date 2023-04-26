@@ -1,5 +1,8 @@
 package com.example.kissanbandhu;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -7,42 +10,26 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Button;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
-public class buyerhomepage extends AppCompatActivity {
+public class buyer_buypest extends AppCompatActivity {
 
-    private Button btn, btnbuy1, btnbuy2;
+    private Button btnpest;
     BottomNavigationView nav;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_buyerhomepage);
-        btn = findViewById(R.id.equipments);
-        btnbuy1 = findViewById(R.id.equipments_buy);
-        btnbuy2 = findViewById(R.id.pesticides);
+        setContentView(R.layout.activity_buyer_buypest);
         getSupportActionBar().setTitle("BUYER");
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#23863B")));
-        btn.setOnClickListener(view -> {
-            Intent i = new Intent(buyerhomepage.this, buyer_rentmenu.class);
-            startActivity(i);
-        });
-
-
-        btnbuy1.setOnClickListener(view -> {
-            Intent i = new Intent(buyerhomepage.this, buyer_buymenu.class);
-            startActivity(i);
-        });
-
-        btnbuy1.setOnClickListener(view -> {
-            Intent i = new Intent(buyerhomepage.this, buyer_buypest.class);
-            startActivity(i);
-        });
-
+        btnpest = findViewById(R.id.atabron);
         nav = findViewById(R.id.nav);
+        btnpest.setOnClickListener(view ->
+        {
+            Intent i = new Intent(buyer_buypest.this, buyer_productsmenu3.class);
+            startActivity(i);
+        });
 
         nav.setOnItemReselectedListener(new NavigationBarView.OnItemReselectedListener() {
             @Override
@@ -50,13 +37,14 @@ public class buyerhomepage extends AppCompatActivity {
                 switch (item.getItemId()){
 
                     case R.id.homenav:
-                        startActivity(new Intent(buyerhomepage.this,buyerhomepage.class));
+                        startActivity(new Intent(buyer_buypest.this,buyerhomepage.class));
                         break;
                     case R.id.ordersnav:
-                        startActivity(new Intent(buyerhomepage.this,orders.class));
+                        startActivity(new Intent(buyer_buypest.this,orders.class));
                         break;
                 }
             }
         });
+
     }
 }

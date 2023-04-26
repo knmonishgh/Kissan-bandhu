@@ -10,9 +10,6 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
@@ -24,28 +21,28 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class buyer_buyproductsmenu extends AppCompatActivity {
+public class buyer_productsmenu3 extends AppCompatActivity {
 
     RecyclerView recyclerView;
     DatabaseReference database;
-    MyAdapter2 myAdapter2;
-    ArrayList<Seeders> list;
+    MyAdapter3 myAdapter3;
+    ArrayList<Pesticides> list;
     BottomNavigationView nav;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_buyer_buyproductsmenu);
+        setContentView(R.layout.activity_buyer_productsmenu3);
         getSupportActionBar().setTitle("BUYER");
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#23863B")));
         database = FirebaseDatabase.getInstance().getReference("Seeders");
-        recyclerView = findViewById(R.id.seedList);
+        recyclerView = findViewById(R.id.pestList);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         nav = findViewById(R.id.nav);
         list = new ArrayList<>();
-        myAdapter2 = new MyAdapter2(this,list);
-        recyclerView.setAdapter(myAdapter2);
+        myAdapter3 = new MyAdapter3(this,list);
+        recyclerView.setAdapter(myAdapter3);
 
 
 
@@ -56,12 +53,12 @@ public class buyer_buyproductsmenu extends AppCompatActivity {
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()){
 
 
-                    Seeders seed = dataSnapshot.getValue(Seeders.class);
-                    list.add(seed);
+                    Pesticides pest = dataSnapshot.getValue(Pesticides.class);
+                    list.add(pest);
 
 
                 }
-                myAdapter2.notifyDataSetChanged();
+                myAdapter3.notifyDataSetChanged();
 
             }
 
@@ -78,16 +75,15 @@ public class buyer_buyproductsmenu extends AppCompatActivity {
                 switch (item.getItemId()){
 
                     case R.id.homenav:
-                        startActivity(new Intent(buyer_buyproductsmenu.this,buyerhomepage.class));
+                        startActivity(new Intent(buyer_productsmenu3.this,buyerhomepage.class));
                         break;
 
                     case R.id.ordersnav:
-                        startActivity(new Intent(buyer_buyproductsmenu.this,orders.class));
+                        startActivity(new Intent(buyer_productsmenu3.this,orders.class));
                         break;
                 }
             }
         });
-
 
 
     }
