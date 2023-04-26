@@ -35,7 +35,7 @@ public class buyer_productsmenu3 extends AppCompatActivity {
         setContentView(R.layout.activity_buyer_productsmenu3);
         getSupportActionBar().setTitle("BUYER");
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#23863B")));
-        database = FirebaseDatabase.getInstance().getReference("Seeders");
+        database = FirebaseDatabase.getInstance().getReference("Pesticides");
         recyclerView = findViewById(R.id.pestList);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -43,7 +43,6 @@ public class buyer_productsmenu3 extends AppCompatActivity {
         list = new ArrayList<>();
         myAdapter3 = new MyAdapter3(this,list);
         recyclerView.setAdapter(myAdapter3);
-
 
 
         database.addValueEventListener(new ValueEventListener() {
