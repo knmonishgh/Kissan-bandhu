@@ -53,7 +53,7 @@ public class MyAdapter3 extends RecyclerView.Adapter<MyAdapter3.MyViewHolder> {
                 FirebaseDatabase.getInstance().getReference("Selected_item3").child("NewDealer3").setValue(newdealer3);
                 FirebaseDatabase.getInstance().getReference("Selected_item3").child("NewNumber3").setValue(newnumber3);
 
-                Intent intent = new Intent(context, buyer_orderdetails2.class);
+                Intent intent = new Intent(context, buyer_orderdetails3.class);
                 context.startActivity(intent);
             }
         });

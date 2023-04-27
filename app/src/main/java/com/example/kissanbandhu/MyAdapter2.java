@@ -47,9 +47,11 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder> {
                 String newitem2 = seed.getSeeder();
                 String newdealer2 = seed.getDealer();
                 String newprice2 = seed.getPrice();
+                String newnumber2 = seed.getContact_no();
                 FirebaseDatabase.getInstance().getReference("Selected_item2").child("NewItem2").setValue(newitem2);
                 FirebaseDatabase.getInstance().getReference("Selected_item2").child("NewPrice2").setValue(newprice2);
                 FirebaseDatabase.getInstance().getReference("Selected_item2").child("NewDealer2").setValue(newdealer2);
+                FirebaseDatabase.getInstance().getReference("Selected_item2").child("NewNumber2").setValue(newnumber2);
 
                 Intent intent = new Intent(context, buyer_orderdetails2.class);
                 context.startActivity(intent);

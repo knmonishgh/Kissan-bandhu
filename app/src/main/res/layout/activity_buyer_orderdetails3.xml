@@ -25,10 +25,16 @@
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp">
 
+            <HorizontalScrollView
+                android:id="@+id/horizontalScrollView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
             <LinearLayout
                 android:layout_width="320dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="20dp"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -47,7 +53,7 @@
                     </TextView>
 
                     <TextView
-                        android:id="@+id/pstoolname"
+                        android:id="@+id/pestname"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="10dp"
@@ -58,6 +64,7 @@
                     </TextView>
 
                 </LinearLayout>
+
 
 
                 <LinearLayout
@@ -76,7 +83,7 @@
                     </TextView>
 
                     <TextView
-                        android:id="@+id/psprice_rs"
+                        android:id="@+id/pestprice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="10dp"
@@ -104,7 +111,7 @@
                     </TextView>
 
                     <TextView
-                        android:id="@+id/psdealer_name"
+                        android:id="@+id/dealname"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="10dp"
@@ -132,7 +139,7 @@
                     </TextView>
 
                     <TextView
-                        android:id="@+id/psdealer_contact"
+                        android:id="@+id/dealcontact"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="10dp"
@@ -147,6 +154,7 @@
 
             </LinearLayout>
 
+            </HorizontalScrollView>
 
         </androidx.cardview.widget.CardView>
 
@@ -169,6 +177,7 @@
 
 
         </RelativeLayout>
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

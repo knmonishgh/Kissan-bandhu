@@ -5,13 +5,16 @@ import static android.service.controls.ControlsProviderService.TAG;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -23,11 +26,10 @@ import com.google.firebase.database.ValueEventListener;
 public class buyer_orderdetails3 extends AppCompatActivity {
 
     BottomNavigationView nav;
-    TextView pesttool, pestprice, pestdname, pestdnum;
+    TextView ptool, pprice, pname, pnum;
     FirebaseDatabase database;
-    DatabaseReference pToolRef, pPriceRef, pDnameRef, pDnumRef;
-    String fDname;
-
+    DatabaseReference ptoolRef, ppriceRef, pnameRef, pnumRef;
+    String pesticide, cost, dealer, number;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,24 +37,87 @@ public class buyer_orderdetails3 extends AppCompatActivity {
         getSupportActionBar().setTitle("ORDER DETAILS");
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#23863B")));
         nav = findViewById(R.id.nav);
-        pesttool = findViewById(R.id.pstoolname);
-        pestprice = findViewById(R.id.psprice_rs);
-        pestdname = findViewById(R.id.psdealer_name);
-        pestdnum = findViewById(R.id.psdealer_contact);
+        ptool = findViewById(R.id.pestname);
+        pprice = findViewById(R.id.pestprice);
+        pname = findViewById(R.id.dealname);
+        pnum = findViewById(R.id.dealcontact);
+
 
         database = FirebaseDatabase.getInstance();
 
-        pDnameRef = database.getReference("Selected_item/NewDealer");
-        pDnameRef.addListenerForSingleValueEvent(new ValueEventListener() {
+
+        ptoolRef = database.getReference("Selected_item3/NewItem3");
+        ptoolRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                fDname = snapshot.getValue(String.class);
-                pestdname.setText(fDname);
+                pesticide = snapshot.getValue(String.class);
+                ptool.setText(pesticide);
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 Log.w(TAG, "Failed to read value.", error.toException());
+            }
+        });
+
+
+        ppriceRef = database.getReference("Selected_item3/NewPrice3");
+        ppriceRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                cost = snapshot.getValue(String.class);
+                pprice.setText(cost);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.w(TAG, "Failed to read value.", error.toException());
+            }
+        });
+
+
+        pnameRef = database.getReference("Selected_item3/NewDealer3");
+        pnameRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                dealer = snapshot.getValue(String.class);
+                pname.setText(dealer);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.w(TAG, "Failed to read value.", error.toException());
+            }
+        });
+
+
+        pnumRef = database.getReference("Selected_item3/NewNumber3");
+        pnumRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                number = snapshot.getValue(String.class);
+                pnum.setText(number);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.w(TAG, "Failed to read value.", error.toException());
+            }
+        });
+
+        nav.setOnItemReselectedListener(new NavigationBarView.OnItemReselectedListener() {
+            @Override
+            public void onNavigationItemReselected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+
+                    case R.id.homenav:
+                        startActivity(new Intent(buyer_orderdetails3.this,buyerhomepage.class));
+                        break;
+
+                    case R.id.ordersnav:
+                        startActivity(new Intent(buyer_orderdetails3.this,orders.class));
+                        break;
+                }
             }
         });
     }

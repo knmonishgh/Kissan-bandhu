@@ -47,22 +47,24 @@ public class buyer_orderdetails extends AppCompatActivity {
         FirebaseUser currentUser = mAuth.getCurrentUser();
         phone = currentUser.getPhoneNumber();
         database = FirebaseDatabase.getInstance();
-//        productNameRef = database.getReference("Orders").child(phone);
-//
-//        productNameRef.addListenerForSingleValueEvent(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//
-//                String productName = snapshot.getValue(String.class);
-//                ntool.setText(productName);
-//
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//                Log.w(TAG, "Failed to read value.", error.toException());
-//            }
-//        });
+
+
+        productNameRef = database.getReference("Orders").child(phone);
+
+        productNameRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                String productName = snapshot.getValue(String.class);
+                ntool.setText(productName);
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.w(TAG, "Failed to read value.", error.toException());
+            }
+        });
 
 
 
