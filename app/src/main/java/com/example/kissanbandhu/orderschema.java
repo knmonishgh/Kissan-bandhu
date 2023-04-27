@@ -2,16 +2,9 @@ package com.example.kissanbandhu;
 
 import android.widget.Button;
 
-public class Pesticides {
+public class orderschema {
+    String tool, Dealer, Price, Contact_no;
 
-    String Fertilizer, Dealer, Price, Contact_no;
-
-    //Modified
-    Button OrderNow;
-
-    public Button getOrderNow() {
-        return OrderNow;
-    }
 
     public String getContact_no() {
         return Contact_no;
@@ -21,12 +14,10 @@ public class Pesticides {
         Contact_no = contact_no;
     }
 
-    public void setOrderNow(Button orderNow) {
-        OrderNow = orderNow;
-    }
 
-    public String getFertilizer() {
-        return Fertilizer;
+
+    public String getTool() {
+        return tool;
     }
 
     public String getDealer() {
@@ -37,8 +28,8 @@ public class Pesticides {
         return Price;
     }
 
-    public void setFertilizer(String fertilizer) {
-        Fertilizer = fertilizer;
+    public void setSeeder(String tool) {
+        tool  = tool;
     }
 
     public void setDealer(String dealer) {
@@ -49,4 +40,3 @@ public class Pesticides {
         Price = price;
     }
 }
-

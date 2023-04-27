@@ -65,40 +65,56 @@ public class buyer_orderdetails extends AppCompatActivity {
                 Log.w(TAG, "Failed to read value.", error.toException());
             }
         });
+        productNameRef = database.getReference("Selected_item/NewItem");
+//
+        productNameRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                String productName = snapshot.getValue(String.class);
+                ntool.setText(productName);
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.w(TAG, "Failed to read value.", error.toException());
+            }
+        });
 
 
 
         //Duration
-//        durationRef = database.getReference("Orders/phone/productName/duration");
-//        durationRef.addListenerForSingleValueEvent(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                duration = snapshot.getValue(String.class);
-//                nduration.setText(duration+" days");
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//                Log.w(TAG, "Failed to read value.", error.toException());
-//            }
-//        });
+        durationRef = database.getReference("Selected_item/NewDealer");
+        durationRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                duration = snapshot.getValue(String.class);
+                nduration.setText(duration+" days");
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.w(TAG, "Failed to read value.", error.toException());
+            }
+        });
 
 
 
         //Price
-//        priceRef = database.getReference("Orders/phone/productName/price");
-//        priceRef.addListenerForSingleValueEvent(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                price = snapshot.getValue(String.class);
-//                nprice.setText(price);
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//                Log.w(TAG, "Failed to read value.", error.toException());
-//            }
-//        });
+        priceRef = database.getReference("Selected_item/NewPrice");;
+        priceRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                price = snapshot.getValue(String.class);
+                nprice.setText(price);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.w(TAG, "Failed to read value.", error.toException());
+            }
+        });
 
 
         //Dealer Name

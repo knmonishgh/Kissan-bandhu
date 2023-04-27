@@ -49,6 +49,7 @@ public class buyer_enterdetails extends AppCompatActivity {
     Button order;
     EditText address;
     String value, productName;
+    String productPrice;
     String phone;
     long days, calculatedPrice;
     int price;
@@ -98,7 +99,7 @@ public class buyer_enterdetails extends AppCompatActivity {
         productPriceRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                String productPrice = snapshot.getValue(String.class);
+                productPrice = snapshot.getValue(String.class);
                 price = Integer.parseInt(extractInt(productPrice));
             }
             @Override
@@ -167,10 +168,10 @@ public class buyer_enterdetails extends AppCompatActivity {
                 hashMap.put("name",value);
                 hashMap.put("address",getAddress);
                 hashMap.put("tool",productName);
-                hashMap.put("price",calculatedPrice);
+                hashMap.put("price",productPrice);
                 hashMap.put("duration",days);
 
-                orderRef.child(productName).setValue(hashMap);
+                orderRef.child(phone).child(productName).setValue(hashMap);
 
                 Intent i = new Intent(buyer_enterdetails.this, buyer_orderdetails.class);
                 startActivity(i);
