@@ -23,57 +23,35 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class buyer_orderdetails extends AppCompatActivity {
-    BottomNavigationView nav;
-    TextView ntool, nduration, nprice, dname, dcontact;
-    FirebaseDatabase database;
-    DatabaseReference productNameRef, durationRef, priceRef, dealerNameRef;
-    String dealerName, duration, price, phone;
+public class buyer_orderdetails3 extends AppCompatActivity {
 
+    BottomNavigationView nav;
+    TextView ptool, pprice, pname, pnum;
+    FirebaseDatabase database;
+    DatabaseReference ptoolRef, ppriceRef, pnameRef, pnumRef;
+    String pesticide, cost, dealer, number;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_buyer_orderdetails);
+        setContentView(R.layout.activity_buyer_orderdetails3);
         getSupportActionBar().setTitle("ORDER DETAILS");
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#23863B")));
         nav = findViewById(R.id.nav);
-        ntool = findViewById(R.id.toolname);
-        nduration = findViewById(R.id.duration_days);
-        nprice = findViewById(R.id.price_rs);
-        dname = findViewById(R.id.dealer_name);
-        dcontact = findViewById(R.id.dealer_contact);
+        ptool = findViewById(R.id.pestname);
+        pprice = findViewById(R.id.pestprice);
+        pname = findViewById(R.id.dealname);
+        pnum = findViewById(R.id.dealcontact);
 
-        FirebaseAuth mAuth = FirebaseAuth.getInstance();
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        phone = currentUser.getPhoneNumber();
+
         database = FirebaseDatabase.getInstance();
 
 
-        productNameRef = database.getReference("Orders").child(phone);
-
-        productNameRef.addListenerForSingleValueEvent(new ValueEventListener() {
+        ptoolRef = database.getReference("Selected_item3/NewItem3");
+        ptoolRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                String productName = snapshot.getValue(String.class);
-                ntool.setText(productName);
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Log.w(TAG, "Failed to read value.", error.toException());
-            }
-        });
-        productNameRef = database.getReference("Selected_item/NewItem");
-//
-        productNameRef.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                String productName = snapshot.getValue(String.class);
-                ntool.setText(productName);
-
+                pesticide = snapshot.getValue(String.class);
+                ptool.setText(pesticide);
             }
 
             @Override
@@ -83,14 +61,12 @@ public class buyer_orderdetails extends AppCompatActivity {
         });
 
 
-
-        //Duration
-        durationRef = database.getReference("Selected_item/NewDealer");
-        durationRef.addListenerForSingleValueEvent(new ValueEventListener() {
+        ppriceRef = database.getReference("Selected_item3/NewPrice3");
+        ppriceRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                duration = snapshot.getValue(String.class);
-                nduration.setText(duration+" days");
+                cost = snapshot.getValue(String.class);
+                pprice.setText(cost);
             }
 
             @Override
@@ -100,14 +76,12 @@ public class buyer_orderdetails extends AppCompatActivity {
         });
 
 
-
-        //Price
-        priceRef = database.getReference("Selected_item/NewPrice");;
-        priceRef.addListenerForSingleValueEvent(new ValueEventListener() {
+        pnameRef = database.getReference("Selected_item3/NewDealer3");
+        pnameRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                price = snapshot.getValue(String.class);
-                nprice.setText(price);
+                dealer = snapshot.getValue(String.class);
+                pname.setText(dealer);
             }
 
             @Override
@@ -117,13 +91,12 @@ public class buyer_orderdetails extends AppCompatActivity {
         });
 
 
-        //Dealer Name
-        dealerNameRef = database.getReference("Selected_item/NewDealer");
-        dealerNameRef.addListenerForSingleValueEvent(new ValueEventListener() {
+        pnumRef = database.getReference("Selected_item3/NewNumber3");
+        pnumRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                dealerName = snapshot.getValue(String.class);
-                dname.setText(dealerName);
+                number = snapshot.getValue(String.class);
+                pnum.setText(number);
             }
 
             @Override
@@ -131,8 +104,6 @@ public class buyer_orderdetails extends AppCompatActivity {
                 Log.w(TAG, "Failed to read value.", error.toException());
             }
         });
-
-
 
         nav.setOnItemReselectedListener(new NavigationBarView.OnItemReselectedListener() {
             @Override
@@ -140,16 +111,14 @@ public class buyer_orderdetails extends AppCompatActivity {
                 switch (item.getItemId()){
 
                     case R.id.homenav:
-                        startActivity(new Intent(buyer_orderdetails.this,buyerhomepage.class));
+                        startActivity(new Intent(buyer_orderdetails3.this,buyerhomepage.class));
                         break;
 
                     case R.id.ordersnav:
-                        startActivity(new Intent(buyer_orderdetails.this,orders.class));
+                        startActivity(new Intent(buyer_orderdetails3.this,orders.class));
                         break;
                 }
             }
         });
-
-
     }
 }

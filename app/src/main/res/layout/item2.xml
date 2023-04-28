@@ -14,13 +14,13 @@
 
 
         <ImageView
-            android:id="@+id/img_trac"
+            android:id="@+id/img_seed"
             android:layout_width="132dp"
             android:layout_height="140dp"
             android:layout_alignParentLeft="true"
             android:layout_marginStart="40dp"
             android:layout_marginLeft="32dp"
-            android:src="@drawable/tractor_new" />
+            android:src="@drawable/seeder" />
 
         <LinearLayout
             android:layout_width="190dp"
@@ -42,11 +42,11 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/tvfirstName"
+                    android:id="@+id/sdfirstName"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="7dp"
-                    android:text="Mahindra"
+                    android:text="John Dheere"
                     android:textAlignment="center"
                     android:textColor="@color/black"
                     android:textSize="25sp"
@@ -70,10 +70,10 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/tvlastName"
+                    android:id="@+id/sdlastName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Surya Automotives"
+                    android:text="Sagar Automotives"
                     android:textAlignment="center"
                     android:textColor="#7C7575"
                     android:textSize="18sp" />
@@ -87,7 +87,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/tvnumber"
+                    android:id="@+id/sdnumber"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="+91 9865321478"
@@ -104,10 +104,10 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/tvage"
+                    android:id="@+id/sdage"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="500/day"
+                    android:text="2000"
                     android:textAlignment="center"
                     android:textColor="#7C7575"
                     android:textSize="18sp" />
@@ -117,15 +117,15 @@
 
         </LinearLayout>
         <Button
-            android:id="@+id/rentnow"
-            android:layout_width="120dp"
+            android:id="@+id/ordernow"
+            android:layout_width="130dp"
             android:layout_height="50dp"
-            android:text="Rent now"
+            android:text="Order now"
             android:layout_marginLeft="140dp"
             android:layout_marginRight="10dp"
             android:layout_marginTop="120dp"
             android:textSize="15dp"
-            android:layout_alignLeft="@+id/img_trac"
+            android:layout_alignLeft="@+id/img_seed"
             android:backgroundTint="#DC3E33"/>
 
     </RelativeLayout>

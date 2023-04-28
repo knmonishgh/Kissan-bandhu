@@ -8,24 +8,22 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
 import android.content.Context;
-
 import android.content.Intent;
 import android.graphics.Color;
+
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
-
-
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -35,19 +33,24 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
 public class buyer_enterdetails extends AppCompatActivity {
 
     BottomNavigationView nav;
-
-     TextView tool;
+    TextView tool;
     FirebaseDatabase database;
-    DatabaseReference productNameRef, productPriceRef;
+    DatabaseReference productNameRef, productPriceRef, orderRef;
     Calendar startCal, endCal;
     TextView mstartdate, menddate;
-    TextView mprice;
+    TextView mprice, testname;
+    Button order;
+    EditText address;
+    String value, productName;
+    String productPrice;
+    String phone;
     long days, calculatedPrice;
     int price;
     @Override
@@ -64,13 +67,23 @@ public class buyer_enterdetails extends AppCompatActivity {
         mprice = findViewById(R.id.pricecal);
         startCal = Calendar.getInstance();
         endCal = Calendar.getInstance();
+        order = findViewById(R.id.order_button);
+        address = findViewById(R.id.user_address);
+        testname = findViewById(R.id.testname);
 
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
         database = FirebaseDatabase.getInstance();
         productNameRef = database.getReference("Selected_item/NewItem");
+        orderRef = database.getReference("Orders");
+        String phone = currentUser.getPhoneNumber();
+
+
+
         productNameRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                String productName = snapshot.getValue(String.class);
+                productName = snapshot.getValue(String.class);
                 tool.setText(productName);
             }
 
@@ -86,7 +99,7 @@ public class buyer_enterdetails extends AppCompatActivity {
         productPriceRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                String productPrice = snapshot.getValue(String.class);
+                productPrice = snapshot.getValue(String.class);
                 price = Integer.parseInt(extractInt(productPrice));
             }
             @Override
@@ -103,9 +116,6 @@ public class buyer_enterdetails extends AppCompatActivity {
 
                     case R.id.homenav:
                         startActivity(new Intent(buyer_enterdetails.this, buyerhomepage.class));
-                        break;
-                    case R.id.cartnav:
-                        startActivity(new Intent(buyer_enterdetails.this, rentcart.class));
                         break;
                     case R.id.ordersnav:
                         startActivity(new Intent(buyer_enterdetails.this, orders.class));
@@ -129,6 +139,44 @@ public class buyer_enterdetails extends AppCompatActivity {
             public void onClick(View v) {
                 showEndDateDialog(buyer_enterdetails.this);
 
+            }
+        });
+
+
+
+        DatabaseReference userRef = database.getReference("buyer_login").child("users").child(phone).child("name");
+
+        userRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                value = dataSnapshot.getValue(String.class);
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // Handle errors here
+                Log.w(TAG, "Failed to read value.", databaseError.toException());
+            }
+        });
+        order.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String getAddress = address.getText().toString();
+                HashMap<String, Object> hashMap = new HashMap<>();
+                hashMap.put("name",value);
+                hashMap.put("address",getAddress);
+                hashMap.put("tool",productName);
+                hashMap.put("price",productPrice);
+                hashMap.put("duration",days);
+
+                orderRef.child(phone).child(productName).setValue(hashMap);
+
+                Intent i = new Intent(buyer_enterdetails.this, buyer_orderdetails.class);
+                startActivity(i);
+
+                address.setText("");
             }
         });
     }

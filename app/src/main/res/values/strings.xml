@@ -33,5 +33,17 @@
     <string name="price">Price:</string>
     <string name="select_hint">Select</string>
     <string name="tagline">- Go On, Get Your <i> Happy Farming </i>Out.</string>
+    <string name="add">Enter your address:</string>
+    <string name="enter_number">Enter Number</string>
+    <string name="toolname">Tool:</string>
+    <string name="durationn">Duration:</string>
+    <string name="pricee">Price:</string>
+    <string name="dname">Dealer Name:</string>
+    <string name="dcontact">Dealer Contact No:</string>
+    <string name="atabron">Atabron</string>
+    <string name="pestfix">PestFix</string>
+    <string name="actara">Actara</string>
+    <string name="virus">Virus-G</string>
+    <string name="pestname">Pesticide:</string>
 
 </resources>

@@ -1,5 +1,8 @@
 package com.example.kissanbandhu;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -7,27 +10,24 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Button;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
-public class buyer_rentmenu extends AppCompatActivity {
+public class buyer_buypest extends AppCompatActivity {
 
-    private Button btntrac;
+    private Button btnpest;
     BottomNavigationView nav;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_buyer_rentmenu);
+        setContentView(R.layout.activity_buyer_buypest);
         getSupportActionBar().setTitle("BUYER");
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#23863B")));
-        btntrac = findViewById(R.id.Tractor);
+        btnpest = findViewById(R.id.atabron);
         nav = findViewById(R.id.nav);
-        btntrac.setOnClickListener(view ->
+        btnpest.setOnClickListener(view ->
         {
-            Intent i = new Intent(buyer_rentmenu.this, buyer_productsmenu.class);
+            Intent i = new Intent(buyer_buypest.this, buyer_productsmenu3.class);
             startActivity(i);
         });
 
@@ -37,15 +37,14 @@ public class buyer_rentmenu extends AppCompatActivity {
                 switch (item.getItemId()){
 
                     case R.id.homenav:
-                        startActivity(new Intent(buyer_rentmenu.this,buyerhomepage.class));
+                        startActivity(new Intent(buyer_buypest.this,buyerhomepage.class));
                         break;
                     case R.id.ordersnav:
-                        startActivity(new Intent(buyer_rentmenu.this,orders.class));
+                        startActivity(new Intent(buyer_buypest.this,orders.class));
                         break;
                 }
             }
         });
-
 
     }
 }

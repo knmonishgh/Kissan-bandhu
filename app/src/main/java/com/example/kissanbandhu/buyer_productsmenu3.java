@@ -10,9 +10,6 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
@@ -24,29 +21,28 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class buyer_productsmenu extends AppCompatActivity {
+public class buyer_productsmenu3 extends AppCompatActivity {
 
     RecyclerView recyclerView;
     DatabaseReference database;
-    MyAdapter myAdapter;
-    ArrayList<Tractors> list;
+    MyAdapter3 myAdapter3;
+    ArrayList<Pesticides> list;
     BottomNavigationView nav;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_buyer_productsmenu);
+        setContentView(R.layout.activity_buyer_productsmenu3);
         getSupportActionBar().setTitle("BUYER");
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#23863B")));
-        database = FirebaseDatabase.getInstance().getReference("Tractors");
-        recyclerView = findViewById(R.id.tracList);
+        database = FirebaseDatabase.getInstance().getReference("Pesticides");
+        recyclerView = findViewById(R.id.pestList);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         nav = findViewById(R.id.nav);
         list = new ArrayList<>();
-        myAdapter = new MyAdapter(this,list);
-        recyclerView.setAdapter(myAdapter);
-
+        myAdapter3 = new MyAdapter3(this,list);
+        recyclerView.setAdapter(myAdapter3);
 
 
         database.addValueEventListener(new ValueEventListener() {
@@ -56,12 +52,12 @@ public class buyer_productsmenu extends AppCompatActivity {
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()){
 
 
-                    Tractors trac = dataSnapshot.getValue(Tractors.class);
-                    list.add(trac);
+                    Pesticides pest = dataSnapshot.getValue(Pesticides.class);
+                    list.add(pest);
 
 
                 }
-                myAdapter.notifyDataSetChanged();
+                myAdapter3.notifyDataSetChanged();
 
             }
 
@@ -78,11 +74,11 @@ public class buyer_productsmenu extends AppCompatActivity {
                 switch (item.getItemId()){
 
                     case R.id.homenav:
-                        startActivity(new Intent(buyer_productsmenu.this,buyerhomepage.class));
+                        startActivity(new Intent(buyer_productsmenu3.this,buyerhomepage.class));
                         break;
 
                     case R.id.ordersnav:
-                        startActivity(new Intent(buyer_productsmenu.this,orders.class));
+                        startActivity(new Intent(buyer_productsmenu3.this,orders.class));
                         break;
                 }
             }
