@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".seller_pesticidesmenu"
+    android:background="#2BA548"
+    android:orientation="vertical">
+
+    <SearchView
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="25dp"
+        android:background="@drawable/custom_edittext"
+        android:iconifiedByDefault="false"
+        android:queryHint="Search">
+    </SearchView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/user_shape"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="40dp">
+
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="132dp"
+                android:layout_height="149dp"
+                android:layout_marginLeft="20dp"
+                app:srcCompat="@drawable/tractor" />
+
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:layout_marginLeft="60dp"
+                app:srcCompat="@drawable/img_1" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_horizontal"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/Tractor"
+                android:layout_width="140dp"
+                android:layout_height="50dp"
+                android:text="SEEDS"
+                android:layout_marginLeft="35dp"
+                android:backgroundTint="#DC3E33"
+                android:textSize="15sp" />
+
+            <Button
+                android:id="@+id/Trolley"
+                android:layout_width="140dp"
+                android:layout_height="50dp"
+                android:text="MANURES"
+                android:layout_marginLeft="60dp"
+                android:textSize="15sp"
+                android:backgroundTint="#DC3E33"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="35dp"
+
+
+
+            android:layout_marginLeft="15dp" >
+
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="155dp"
+                android:layout_height="143dp"
+                android:layout_marginLeft="15dp"
+                app:srcCompat="@drawable/pesticides" />
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="144dp"
+                android:layout_height="159dp"
+                android:layout_marginLeft="50dp"
+                app:srcCompat="@drawable/pesticides" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_horizontal"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/seeder"
+                android:layout_width="140dp"
+                android:layout_height="50dp"
+                android:text="PESTICIDES"
+                android:layout_marginLeft="45dp"
+                android:backgroundTint="#DC3E33"
+                android:textSize="15sp" />
+
+            <Button
+                android:id="@+id/cultivator"
+                android:layout_width="140dp"
+                android:layout_height="50dp"
+                android:text="FERTILISERS"
+                android:backgroundTint="#DC3E33"
+                android:layout_marginLeft="50dp"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/nav"
+                android:layout_alignParentBottom="true"
+                app:menu="@menu/menu_bar"
+                android:background="@color/ash_top"/>
+
+
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>

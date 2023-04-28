@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_height="match_parent"
+    android:background="#2BA548"
+    tools:context=".seller_equiprenttrac">
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="650dp"
+        android:layout_marginTop="80dp"
+        android:background="@drawable/user_shape"
+        android:orientation="vertical"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="40dp"
+            android:layout_gravity="center_horizontal"
+            android:padding="20dp">
+
+
+
+            <EditText
+                android:id="@+id/Tractor_name"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="5dp"
+                android:padding="8dp"
+                android:background="@drawable/custom_edittext"
+                android:hint="Tractor Name">
+
+            </EditText>
+
+            <EditText
+                android:id="@+id/Dealer_name"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:padding="8dp"
+                android:background="@drawable/custom_edittext"
+                android:hint="Dealer Name">
+
+            </EditText>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:id="@+id/Cost_perday"
+                android:layout_marginTop="10dp"
+                android:padding="8dp"
+                android:background="@drawable/custom_edittext"
+                android:hint="Cost perday"
+                android:inputType="number" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:id="@+id/Contact_number"
+                android:layout_marginTop="10dp"
+                android:padding="8dp"
+                android:background="@drawable/custom_edittext"
+                android:hint="Contact Number"
+                android:inputType="phone" />
+
+            <Button
+                android:layout_width="200dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="20dp"
+                android:id="@+id/Add_stock"
+                android:layout_gravity="center"
+                android:text="Add Stock"
+                android:backgroundTint="#DC3E33"
+                android:textSize="20dp"></Button>
+
+
+
+            <Button
+                android:layout_width="200dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="10dp"
+                android:id="@+id/Update_stock"
+                android:layout_gravity="center"
+                android:text="Update Stock"
+                android:backgroundTint="#DC3E33"
+                android:textSize="20dp"></Button>
+            <Button
+                android:layout_width="200dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="10dp"
+                android:id="@+id/Delete_stock"
+                android:layout_gravity="center"
+                android:text="Delete Stock"
+                android:backgroundTint="#DC3E33"
+                android:textSize="20dp"></Button>
+            <Button
+                android:layout_width="200dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="10dp"
+                android:id="@+id/View_stock"
+                android:layout_gravity="center"
+                android:text="View Stock"
+                android:backgroundTint="#DC3E33"
+                android:textSize="20dp"></Button>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

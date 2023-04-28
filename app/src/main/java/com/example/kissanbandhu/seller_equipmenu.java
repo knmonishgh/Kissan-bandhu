@@ -8,25 +8,20 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.widget.Button;
 
-public class homepage extends AppCompatActivity {
-      private Button bt1,bt2;
+public class seller_equipmenu extends AppCompatActivity {
+    private Button bt1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_homepage);
+        setContentView(R.layout.activity_seller_equipmenu);
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#23863B")));
-        bt1 = findViewById(R.id.button3);
+        bt1 = findViewById(R.id.Tractor);
         bt1.setOnClickListener(view -> {
 
-            Intent i = new Intent(homepage.this, buyerlogin.class);
+            Intent i = new Intent(seller_equipmenu.this, seller_equiprenttrac.class);
             startActivity(i);
         });
-        bt2 = findViewById(R.id.button4);
-        bt2.setOnClickListener(view -> {
 
-            Intent i = new Intent(homepage.this, sellerlogin.class);
-            startActivity(i);
-        });
 
     }
 }
