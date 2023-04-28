@@ -11,15 +11,21 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder> {
 
     Context context;
     ArrayList<Seeders> list;
-
+    DatabaseReference orderRef;
+    FirebaseDatabase database;
+    String phone;
 
     public MyAdapter2(Context context, ArrayList<Seeders> list) {
         this.context = context;
@@ -52,7 +58,16 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder> {
                 FirebaseDatabase.getInstance().getReference("Selected_item2").child("NewPrice2").setValue(newprice2);
                 FirebaseDatabase.getInstance().getReference("Selected_item2").child("NewDealer2").setValue(newdealer2);
                 FirebaseDatabase.getInstance().getReference("Selected_item2").child("NewNumber2").setValue(newnumber2);
-
+                HashMap<String, Object> hashMap = new HashMap<>();
+                hashMap.put("tool", newitem2);
+                hashMap.put("price", newprice2);
+                hashMap.put("dealer", newdealer2);
+                database = FirebaseDatabase.getInstance();
+                orderRef = database.getReference("Orders");
+                FirebaseAuth mAuth = FirebaseAuth.getInstance();
+                FirebaseUser currentUser = mAuth.getCurrentUser();
+                phone = currentUser.getPhoneNumber();
+                orderRef.child(phone).child(newitem2).setValue(hashMap);
                 Intent intent = new Intent(context, buyer_orderdetails2.class);
                 context.startActivity(intent);
             }
