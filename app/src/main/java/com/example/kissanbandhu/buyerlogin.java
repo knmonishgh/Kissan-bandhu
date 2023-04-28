@@ -55,6 +55,9 @@ public class buyerlogin extends AppCompatActivity {
                 if(TextUtils.isEmpty(phone.getText().toString())){
                     Toast.makeText(buyerlogin.this, "Enter valid phone number", Toast.LENGTH_SHORT).show();
                 }
+                else if (TextUtils.isEmpty(name.getText().toString())){
+                    Toast.makeText(buyerlogin.this, "Enter name", Toast.LENGTH_SHORT).show();
+                }
                 else {
                     String num = phone.getText().toString();
                     sendverificationcode(num);

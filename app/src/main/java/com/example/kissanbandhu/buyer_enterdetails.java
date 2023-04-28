@@ -13,6 +13,7 @@ import android.graphics.Color;
 
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -20,6 +21,8 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -42,13 +45,13 @@ public class buyer_enterdetails extends AppCompatActivity {
     BottomNavigationView nav;
     TextView tool;
     FirebaseDatabase database;
-    DatabaseReference productNameRef, productPriceRef, orderRef;
+    DatabaseReference productNameRef, productPriceRef, dealerRef,orderRef, selectRef;
     Calendar startCal, endCal;
     TextView mstartdate, menddate;
     TextView mprice, testname;
     Button order;
     EditText address;
-    String value, productName;
+    String value, productName, dealerName;
     String productPrice;
     String phone;
     long days, calculatedPrice;
@@ -76,6 +79,9 @@ public class buyer_enterdetails extends AppCompatActivity {
         database = FirebaseDatabase.getInstance();
         productNameRef = database.getReference("Selected_item/NewItem");
         orderRef = database.getReference("Orders");
+        dealerRef = database.getReference("Selected_item/NewDealer");
+        selectRef = database.getReference("Selected_item");
+
         String phone = currentUser.getPhoneNumber();
 
 
@@ -108,6 +114,19 @@ public class buyer_enterdetails extends AppCompatActivity {
             }
         });
 
+
+
+        dealerRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                dealerName = snapshot.getValue(String.class);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.w(TAG, "Failed to read value.", error.toException());
+            }
+        });
 
         nav.setOnItemReselectedListener(new NavigationBarView.OnItemReselectedListener() {
             @Override
@@ -144,39 +163,34 @@ public class buyer_enterdetails extends AppCompatActivity {
 
 
 
-        DatabaseReference userRef = database.getReference("buyer_login").child("users").child(phone).child("name");
-
-        userRef.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-
-                value = dataSnapshot.getValue(String.class);
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                // Handle errors here
-                Log.w(TAG, "Failed to read value.", databaseError.toException());
-            }
-        });
         order.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String getAddress = address.getText().toString();
-                HashMap<String, Object> hashMap = new HashMap<>();
-                hashMap.put("name",value);
-                hashMap.put("address",getAddress);
-                hashMap.put("tool",productName);
-                hashMap.put("price",productPrice);
-                hashMap.put("duration",days);
+                if (TextUtils.isEmpty(getAddress)){
+                    Toast.makeText(buyer_enterdetails.this, "Enter address", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    HashMap<String, Object> hashMap = new HashMap<>();
+                    hashMap.put("address", getAddress);
+                    hashMap.put("tool", productName);
+                    hashMap.put("price", productPrice);
+                    hashMap.put("duration", days);
+                    hashMap.put("dealer", dealerName);
 
-                orderRef.child(phone).child(productName).setValue(hashMap);
+                    orderRef.child(phone).child(productName).setValue(hashMap);
 
-                Intent i = new Intent(buyer_enterdetails.this, buyer_orderdetails.class);
-                startActivity(i);
+                    selectRef.child("NewDuration").setValue(Long.toString(days));
 
-                address.setText("");
+                    selectRef.child("NewPrice").setValue("₹" + Long.toString(calculatedPrice));
+
+                    Toast.makeText(buyer_enterdetails.this, "Order Placed", Toast.LENGTH_SHORT).show();
+
+                    Intent i = new Intent(buyer_enterdetails.this, buyer_orderdetails.class);
+                    startActivity(i);
+
+                    address.setText("");
+                }
             }
         });
     }

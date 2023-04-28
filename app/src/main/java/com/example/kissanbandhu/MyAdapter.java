@@ -51,9 +51,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
                 String newitem = trac.getTractor();
                 String newdealer = trac.getDealer();
                 String newprice = trac.getPrice();
+                String newnumber = trac.getContact_no();
                 FirebaseDatabase.getInstance().getReference("Selected_item").child("NewItem").setValue(newitem);
                 FirebaseDatabase.getInstance().getReference("Selected_item").child("NewPrice").setValue(newprice);
                 FirebaseDatabase.getInstance().getReference("Selected_item").child("NewDealer").setValue(newdealer);
+                FirebaseDatabase.getInstance().getReference("Selected_item").child("NewNumber").setValue(newnumber);
 
                 Intent intent = new Intent(context, buyer_enterdetails.class);
                 context.startActivity(intent);
