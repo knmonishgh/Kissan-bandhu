@@ -27,8 +27,8 @@ public class buyer_orderdetails extends AppCompatActivity {
     BottomNavigationView nav;
     TextView ntool, nduration, nprice, dname, dcontact;
     FirebaseDatabase database;
-    DatabaseReference productNameRef, durationRef, priceRef, dealerNameRef;
-    String dealerName, duration, price, phone;
+    DatabaseReference productNameRef, durationRef, priceRef, dealerNameRef, contactRef;
+    String dealerName, duration, price, phone, dealerContact;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,24 +49,9 @@ public class buyer_orderdetails extends AppCompatActivity {
         database = FirebaseDatabase.getInstance();
 
 
-        productNameRef = database.getReference("Orders").child(phone);
 
-        productNameRef.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                String productName = snapshot.getValue(String.class);
-                ntool.setText(productName);
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Log.w(TAG, "Failed to read value.", error.toException());
-            }
-        });
         productNameRef = database.getReference("Selected_item/NewItem");
-//
+
         productNameRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -85,7 +70,7 @@ public class buyer_orderdetails extends AppCompatActivity {
 
 
         //Duration
-        durationRef = database.getReference("Selected_item/NewDealer");
+        durationRef = database.getReference("Selected_item/NewDuration");
         durationRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -132,7 +117,19 @@ public class buyer_orderdetails extends AppCompatActivity {
             }
         });
 
+        contactRef = database.getReference("Selected_item/NewNumber");
+        contactRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                dealerContact = snapshot.getValue(String.class);
+                dcontact.setText(dealerContact);
+            }
 
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.w(TAG, "Failed to read value.", error.toException());
+            }
+        });
 
         nav.setOnItemReselectedListener(new NavigationBarView.OnItemReselectedListener() {
             @Override
