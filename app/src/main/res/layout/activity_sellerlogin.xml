@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_height="match_parent"
+    android:background="#2BA548"
+    tools:context=".sellerlogin">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        android:text="@string/login"
+        android:textSize="35dp"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:textColor="@color/white">
+
+    </TextView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="650dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/user_shape"
+        android:orientation="vertical"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="0dp"
+            android:layout_gravity="center_horizontal"
+            android:padding="20dp">
+
+
+
+            <EditText
+                android:id="@+id/login_name"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="1dp"
+                android:padding="8dp"
+                android:background="@drawable/custom_edittext"
+                android:hint="@string/name">
+
+            </EditText>
+            <EditText
+                android:id="@+id/GSTIN"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="40dp"
+                android:padding="8dp"
+                android:background="@drawable/custom_edittext"
+                android:hint="Enter GSTIN">
+
+            </EditText>
+
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:id="@+id/phone"
+                android:layout_marginTop="40dp"
+                android:padding="8dp"
+                android:background="@drawable/custom_edittext"
+                android:hint="Enter Number"
+                android:inputType="phone" />
+
+            <Button
+                android:layout_width="200dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="30dp"
+                android:id="@+id/genotp_button"
+                android:layout_gravity="center"
+                android:text="@string/generate_otp"
+                android:backgroundTint="#DC3E33"
+                android:textSize="20dp"></Button>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:id="@+id/otp"
+                android:layout_marginTop="20dp"
+                android:padding="8dp"
+                android:background="@drawable/custom_edittext"
+                android:hint="@string/otp"
+                android:inputType="number" >
+
+            </EditText>
+
+            <Button
+                android:layout_width="200dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="20dp"
+                android:id="@+id/verifyotp_button"
+                android:layout_gravity="center"
+                android:text="@string/verify_otp"
+                android:backgroundTint="#DC3E33"
+                android:textSize="20dp"></Button>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
