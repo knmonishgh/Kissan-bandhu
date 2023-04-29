@@ -11,6 +11,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
@@ -19,8 +21,6 @@ public class MyAdapter4 extends RecyclerView.Adapter<MyAdapter4.MyViewHolder> {
 
     Context context;
     ArrayList<orderschema> list;
-
-
     public MyAdapter4(Context context, ArrayList<orderschema> list) {
         this.context = context;
         this.list = list;
@@ -37,12 +37,10 @@ public class MyAdapter4 extends RecyclerView.Adapter<MyAdapter4.MyViewHolder> {
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
         orderschema order = list.get(position);
-        holder.name.setText(order.getTool());
-        holder.Dealer.setText(order.getDealer());
-        holder.Price.setText(order.getPrice());
-        //holder.Contact_no.setText(order.getContact_no());
-
-
+            holder.name.setText(order.getTool());
+            holder.Dealer.setText(order.getDealer());
+            holder.Price.setText(order.getPrice());
+            //holder.Contact_no.setText(order.getContact_no());
     }
 
 

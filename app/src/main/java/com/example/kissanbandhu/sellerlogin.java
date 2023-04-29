@@ -56,6 +56,12 @@ public class sellerlogin extends AppCompatActivity {
                 if(TextUtils.isEmpty(phone.getText().toString())){
                     Toast.makeText(sellerlogin.this, "Enter valid phone number", Toast.LENGTH_SHORT).show();
                 }
+                else if (TextUtils.isEmpty(name.getText().toString())) {
+                    Toast.makeText(sellerlogin.this, "Enter name", Toast.LENGTH_SHORT).show();
+                }
+                else if (TextUtils.isEmpty(gst.getText().toString())) {
+                    Toast.makeText(sellerlogin.this, "Enter GST number", Toast.LENGTH_SHORT).show();
+                }
                 else {
                     String num = phone.getText().toString();
                     sendverificationcode(num);
@@ -132,12 +138,14 @@ public class sellerlogin extends AppCompatActivity {
                             startActivity(new Intent(sellerlogin.this, sellerhome.class));
                             String getName = name.getText().toString();
                             String getPhone = phone.getText().toString();
+                            String getGST = gst.getText().toString();
 
                             HashMap<String, Object> hashMap = new HashMap<>();
                             hashMap.put("name",getName);
                             hashMap.put("phone",getPhone);
+                            hashMap.put("GST",getGST);
 
-                            mRef.child("users").child(getName).setValue(hashMap);
+                            mRef.child("users").child(getPhone).setValue(hashMap);
                             otp.setText("");
                         }
                         else{

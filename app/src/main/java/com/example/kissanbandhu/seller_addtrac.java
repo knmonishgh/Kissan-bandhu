@@ -1,17 +1,15 @@
 package com.example.kissanbandhu;
 
 import android.annotation.SuppressLint;
-import android.database.Cursor;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class seller_equiprenttrac extends AppCompatActivity {
+public class seller_addtrac extends AppCompatActivity {
 //    MYDatabaseHandler myDb;
     EditText ed1,ed2,ed3,ed4;
     Button btn1,btn2,btn3,btn4;
@@ -20,7 +18,9 @@ public class seller_equiprenttrac extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_seller_equiprenttrac);
+        setContentView(R.layout.activity_seller_addtrac);
+        getSupportActionBar().setTitle("SELLER");
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#23863B")));
 //        myDb= new MYDatabaseHandler(this);
 //        ed1 = findViewById(R.id.Tractor_name);
 //        ed2 = findViewById(R.id.Dealer_name);
@@ -43,9 +43,9 @@ public class seller_equiprenttrac extends AppCompatActivity {
 //            public void onClick(View view) {
 ////                boolean isupdate = myDb.updateData(ed1.getText().toString(),ed2.getText().toString(),ed3.getText().toString(),ed4.getText().toString());
 ////                if(isupdate == true)
-//                    Toast.makeText(seller_equiprenttrac.this, "Data Updated ", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(seller_addtrac.this, "Data Updated ", Toast.LENGTH_SHORT).show();
 //                else
-//                    Toast.makeText(seller_equiprenttrac.this, "Data not Updated ", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(seller_addtrac.this, "Data not Updated ", Toast.LENGTH_SHORT).show();
 //            }
 //        });
 //    }
@@ -56,9 +56,9 @@ public class seller_equiprenttrac extends AppCompatActivity {
 //            public void onClick(View view) {
 ////                Integer deletedrows = myDb.deleData(ed1.getText().toString());
 ////                if(deletedrows>0)
-//                    Toast.makeText(seller_equiprenttrac.this, "Data Deleted", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(seller_addtrac.this, "Data Deleted", Toast.LENGTH_SHORT).show();
 //                else
-//                    Toast.makeText(seller_equiprenttrac.this, "Data not Deleted", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(seller_addtrac.this, "Data not Deleted", Toast.LENGTH_SHORT).show();
 //            }
 //        });
 //    }
@@ -98,9 +98,9 @@ public class seller_equiprenttrac extends AppCompatActivity {
 //            @Override
 //            public void onClick(View view) {boolean isinserted =   myDb.insertData(ed2.getText().toString(),ed3.getText().toString(),ed4.getText().toString());
 //                if(isinserted == true)
-//                    Toast.makeText(seller_equiprenttrac.this, "Data Inserted", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(seller_addtrac.this, "Data Inserted", Toast.LENGTH_SHORT).show();
 //                else
-//                    Toast.makeText(seller_equiprenttrac.this, "Data not Inserted", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(seller_addtrac.this, "Data not Inserted", Toast.LENGTH_SHORT).show();
 //            }
 //        });
     }

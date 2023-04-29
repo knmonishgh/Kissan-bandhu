@@ -4,11 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class seller_pesticidesmenu extends AppCompatActivity {
+public class seller_buypest extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_seller_pesticidesmenu);
+        setContentView(R.layout.activity_seller_buypest);
     }
 }

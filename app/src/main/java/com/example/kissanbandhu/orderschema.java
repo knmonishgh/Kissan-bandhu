@@ -5,7 +5,6 @@ import android.widget.Button;
 public class orderschema {
     String tool, Dealer, Price, Contact_no;
 
-
     public String getContact_no() {
         return Contact_no;
     }
