@@ -13,16 +13,16 @@
         tools:targetApi="31">
         <activity
 
-            android:name=".seller_equiprenttrac"
+            android:name=".seller_addtrac"
             android:exported="false" />
         <activity
-            android:name=".seller_euipbuymenu"
+            android:name=".seller_buymenu"
             android:exported="false" />
         <activity
-            android:name=".seller_pesticidesmenu"
+            android:name=".seller_buypest"
             android:exported="false" />
         <activity
-            android:name=".seller_equipmenu"
+            android:name=".seller_rentmenu"
             android:exported="false" />
         <activity
             android:name=".sellerhome"

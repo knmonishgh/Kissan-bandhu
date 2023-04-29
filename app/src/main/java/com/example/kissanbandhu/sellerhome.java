@@ -4,14 +4,11 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.widget.Button;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.navigation.NavigationBarView;
 
 public class sellerhome extends AppCompatActivity {
 
@@ -28,17 +25,17 @@ public class sellerhome extends AppCompatActivity {
         getSupportActionBar().setTitle("SELLER");
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#23863B")));
         btn.setOnClickListener(view -> {
-            Intent i = new Intent(sellerhome.this, seller_equipmenu.class);
+            Intent i = new Intent(sellerhome.this, seller_buymenu.class);
             startActivity(i);
         });
         btn1.setOnClickListener(view -> {
-            Intent i = new Intent(sellerhome.this, seller_euipbuymenu.class);
+            Intent i = new Intent(sellerhome.this, seller_rentmenu.class);
             startActivity(i);
         });
 
 
         btn2.setOnClickListener(view -> {
-            Intent i = new Intent(sellerhome.this, seller_pesticidesmenu.class);
+            Intent i = new Intent(sellerhome.this, seller_buypest.class);
             startActivity(i);
         });
     }

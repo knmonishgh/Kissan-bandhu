@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".seller_pesticidesmenu"
+    tools:context=".seller_buypest"
     android:background="#2BA548"
     android:orientation="vertical">
 

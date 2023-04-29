@@ -7,7 +7,7 @@
     android:gravity="center"
     android:layout_height="match_parent"
     android:background="#2BA548"
-    tools:context=".seller_equiprenttrac">
+    tools:context=".seller_addtrac">
 
 
 
@@ -114,6 +114,23 @@
                 android:textSize="20dp"></Button>
 
         </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/nav"
+                android:layout_alignParentBottom="true"
+                app:menu="@menu/menu_bar"
+                app:itemIconTint="@color/white"
+                app:itemTextColor="@color/white"
+                android:background="#2BA548"/>
+
+
+        </RelativeLayout>
 
     </LinearLayout>
 
