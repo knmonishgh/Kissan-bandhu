@@ -40,7 +40,7 @@ public class seller_buymenu extends AppCompatActivity {
                         startActivity(new Intent(seller_buymenu.this,sellerhome.class));
                         break;
                     case R.id.ordersnav:
-                        startActivity(new Intent(seller_buymenu.this,orders.class));
+                        startActivity(new Intent(seller_buymenu.this,orders2.class));
                         break;
                 }
             }

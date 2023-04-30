@@ -4,11 +4,14 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.Button;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 
 public class sellerhome extends AppCompatActivity {
 
@@ -37,6 +40,21 @@ public class sellerhome extends AppCompatActivity {
         btn2.setOnClickListener(view -> {
             Intent i = new Intent(sellerhome.this, seller_buypest.class);
             startActivity(i);
+        });
+
+        nav.setOnItemReselectedListener(new NavigationBarView.OnItemReselectedListener() {
+            @Override
+            public void onNavigationItemReselected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+
+                    case R.id.homenav:
+                        startActivity(new Intent(sellerhome.this, sellerhome.class));
+                        break;
+                    case R.id.ordersnav:
+                        startActivity(new Intent(sellerhome.this, orders2.class));
+                        break;
+                }
+            }
         });
     }
 }
