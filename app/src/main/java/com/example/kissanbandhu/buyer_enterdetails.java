@@ -202,10 +202,10 @@ public class buyer_enterdetails extends AppCompatActivity {
                     hashMap2.put("address", getAddress);
                     hashMap2.put("tool", productName);
                     hashMap2.put("price", productPrice);
-                    hashMap2.put("duration", days);
+                    hashMap2.put("duration", Long.toString(days));
                     hashMap2.put("buyer_number", phone);
-
-                    sellorderRef.child("seller").child("rent").child(dealerNum).child(productName).setValue(hashMap2);
+                    String key = sellorderRef.push().getKey();
+                    sellorderRef.child("seller").child("rent").child(dealerNum).child(key).setValue(hashMap2);
 
                     selectRef.child("NewDuration").setValue(Long.toString(days));
 

@@ -25,6 +25,8 @@ public class sellerhome extends AppCompatActivity {
         btn = findViewById(R.id.equipments);
         btn1 = findViewById(R.id.equipments_buy);
         btn2 = findViewById(R.id.pesticides);
+        nav = findViewById(R.id.nav);
+
         getSupportActionBar().setTitle("SELLER");
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#23863B")));
         btn.setOnClickListener(view -> {

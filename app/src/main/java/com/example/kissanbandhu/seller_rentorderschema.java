@@ -55,6 +55,6 @@ public class seller_rentorderschema {
 
 
     public void setDays(String days) {
-        this.days = days;
+        days = days;
     }
 }
