@@ -40,7 +40,7 @@ public class MyAdapter4 extends RecyclerView.Adapter<MyAdapter4.MyViewHolder> {
             holder.name.setText(order.getTool());
             holder.Dealer.setText(order.getDealer());
             holder.Price.setText(order.getPrice());
-            //holder.Contact_no.setText(order.getContact_no());
+            holder.Contact_no.setText(order.getDealer_number());
     }
 
 
@@ -61,7 +61,7 @@ public class MyAdapter4 extends RecyclerView.Adapter<MyAdapter4.MyViewHolder> {
             name= itemView.findViewById(R.id.oname);
             Dealer = itemView.findViewById(R.id.odealer);
             Price = itemView.findViewById(R.id.oprice);
-            //Contact_no = itemView.findViewById(R.id.onumber);
+            Contact_no = itemView.findViewById(R.id.onumber);
         }
     }
 

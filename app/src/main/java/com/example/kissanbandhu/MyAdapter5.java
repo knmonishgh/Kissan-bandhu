@@ -39,7 +39,7 @@ public class MyAdapter5 extends RecyclerView.Adapter<MyAdapter5.MyViewHolder> {
         seller_rentorderschema order = list.get(position);
         holder.name.setText(order.getTool());
         holder.Price.setText(order.getPrice());
-        holder.Duration.setText(order.getDays());
+        holder.Duration.setText(order.getDuration());
         holder.add.setText(order.getAddress());
         holder.buynumb.setText(order.getBuyer_number());
     }
@@ -63,8 +63,6 @@ public class MyAdapter5 extends RecyclerView.Adapter<MyAdapter5.MyViewHolder> {
             Duration = itemView.findViewById(R.id.osduration);
             buynumb = itemView.findViewById(R.id.osnumber);
             add = itemView.findViewById(R.id.osaddress);
-
-            //Contact_no = itemView.findViewById(R.id.onumber);
         }
     }
 

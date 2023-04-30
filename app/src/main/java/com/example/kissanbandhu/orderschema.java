@@ -3,15 +3,21 @@ package com.example.kissanbandhu;
 import android.widget.Button;
 
 public class orderschema {
-    String tool, Dealer, Price, Contact_no;
-
-    public String getContact_no() {
-        return Contact_no;
+    String tool;
+    String Dealer;
+    String Price;
+    String dealer_number;
+    public String getDealer_number() {
+        return dealer_number;
     }
 
-    public void setContact_no(String contact_no) {
-        Contact_no = contact_no;
+    public void setDealer_number(String dealer_number) {
+        this.dealer_number = dealer_number;
     }
+
+
+
+
 
 
 

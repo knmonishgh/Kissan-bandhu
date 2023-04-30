@@ -4,8 +4,17 @@ public class seller_rentorderschema {
 
     String tool;
     String Price;
+    String duration;
 
-    String days;
+    public String getDuration() {
+        return duration;
+    }
+
+    public void setDuration(String duration) {
+        this.duration = duration;
+    }
+
+
     String address;
     String buyer_number;
 
@@ -29,9 +38,7 @@ public class seller_rentorderschema {
 
 
 
-    public String getDays() {
-        return days;
-    }
+
 
 
 
@@ -54,7 +61,5 @@ public class seller_rentorderschema {
 
 
 
-    public void setDays(String days) {
-        days = days;
-    }
+
 }
