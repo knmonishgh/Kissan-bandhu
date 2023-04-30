@@ -81,11 +81,11 @@ public class orders2 extends AppCompatActivity {
                 switch (item.getItemId()){
 
                     case R.id.homenav:
-                        startActivity(new Intent(orders2.this,buyerhomepage.class));
+                        startActivity(new Intent(orders2.this,sellerhome.class));
                         break;
 
                     case R.id.ordersnav:
-                        startActivity(new Intent(orders2.this,orders.class));
+                        startActivity(new Intent(orders2.this,orders2.class));
                         break;
                 }
             }

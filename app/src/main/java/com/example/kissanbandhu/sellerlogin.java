@@ -79,6 +79,7 @@ public class sellerlogin extends AppCompatActivity {
                 }
                 else {
                     verifycode(otp.getText().toString());
+
                 }
             }
         });

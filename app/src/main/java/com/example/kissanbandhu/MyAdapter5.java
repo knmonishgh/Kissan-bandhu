@@ -53,7 +53,6 @@ public class MyAdapter5 extends RecyclerView.Adapter<MyAdapter5.MyViewHolder> {
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
 
-        Button OrderNow;
         TextView name, Duration, Price, buynumb,add;
 
         public MyViewHolder(@NonNull View itemView) {
