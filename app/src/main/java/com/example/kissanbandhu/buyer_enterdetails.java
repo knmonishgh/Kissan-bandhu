@@ -45,13 +45,13 @@ public class buyer_enterdetails extends AppCompatActivity {
     BottomNavigationView nav;
     TextView tool;
     FirebaseDatabase database;
-    DatabaseReference productNameRef, productPriceRef, dealerRef,orderRef, selectRef;
+    DatabaseReference productNameRef, productPriceRef, dealerRef, dealernumRef, orderRef, selectRef, sellorderRef;
     Calendar startCal, endCal;
     TextView mstartdate, menddate;
     TextView mprice, testname;
     Button order;
     EditText address;
-    String value, productName, dealerName;
+    String value, productName, dealerName, dealerNum;
     String productPrice;
     String phone;
     long days, calculatedPrice;
@@ -80,10 +80,11 @@ public class buyer_enterdetails extends AppCompatActivity {
         productNameRef = database.getReference("Selected_item/NewItem");
         orderRef = database.getReference("Orders");
         dealerRef = database.getReference("Selected_item/NewDealer");
+        dealernumRef = database.getReference("Selected_item/NewNumber");
         selectRef = database.getReference("Selected_item");
+        sellorderRef = database.getReference("Orders");
 
         String phone = currentUser.getPhoneNumber();
-
 
 
         productNameRef.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -101,7 +102,7 @@ public class buyer_enterdetails extends AppCompatActivity {
 
        
 
- productPriceRef = database.getReference("Selected_item/NewPrice");
+        productPriceRef = database.getReference("Selected_item/NewPrice");
         productPriceRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -127,6 +128,19 @@ public class buyer_enterdetails extends AppCompatActivity {
                 Log.w(TAG, "Failed to read value.", error.toException());
             }
         });
+
+        dealernumRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                dealerNum = snapshot.getValue(String.class);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.w(TAG, "Failed to read value.", error.toException());
+            }
+        });
+
 
         nav.setOnItemReselectedListener(new NavigationBarView.OnItemReselectedListener() {
             @Override
@@ -170,6 +184,8 @@ public class buyer_enterdetails extends AppCompatActivity {
                 if (TextUtils.isEmpty(getAddress)){
                     Toast.makeText(buyer_enterdetails.this, "Enter address", Toast.LENGTH_SHORT).show();
                 }
+
+                //Buyer Orders Reference
                 else {
                     HashMap<String, Object> hashMap = new HashMap<>();
                     hashMap.put("address", getAddress);
@@ -177,8 +193,19 @@ public class buyer_enterdetails extends AppCompatActivity {
                     hashMap.put("price", productPrice);
                     hashMap.put("duration", days);
                     hashMap.put("dealer", dealerName);
+                    hashMap.put("dealer_number", dealerNum);
 
-                    orderRef.child(phone).child(productName).setValue(hashMap);
+                    orderRef.child("buyer").child(phone).child(productName).setValue(hashMap);
+
+                    //Seller Orders Reference
+                    HashMap<String, Object> hashMap2 = new HashMap<>();
+                    hashMap2.put("address", getAddress);
+                    hashMap2.put("tool", productName);
+                    hashMap2.put("price", productPrice);
+                    hashMap2.put("duration", days);
+                    hashMap2.put("buyer_number", phone);
+
+                    sellorderRef.child("seller").child("rent").child(dealerNum).child(productName).setValue(hashMap2);
 
                     selectRef.child("NewDuration").setValue(Long.toString(days));
 
