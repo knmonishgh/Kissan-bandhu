@@ -48,7 +48,7 @@ public class orders extends AppCompatActivity {
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
         FirebaseUser currentUser = mAuth.getCurrentUser();
         String phone = currentUser.getPhoneNumber();
-        database = FirebaseDatabase.getInstance().getReference("Orders").child(phone);
+        database = FirebaseDatabase.getInstance().getReference("Orders");
 
 
         database.addValueEventListener(new ValueEventListener() {
@@ -59,7 +59,8 @@ public class orders extends AppCompatActivity {
 
 
                     orderschema order= dataSnapshot.getValue(orderschema.class);
-                    list.add(order);
+                        list.add(order);
+
 
 
                 }

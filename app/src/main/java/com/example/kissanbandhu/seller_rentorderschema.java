@@ -2,15 +2,38 @@ package com.example.kissanbandhu;
 
 public class seller_rentorderschema {
 
-    String tool, Price, Contact_no, days;
+    String tool;
+    String Price;
+
+    String days;
+    String address;
+    String buyer_number;
+
+    public String getBuyer_number() {
+        return buyer_number;
+    }
+
+    public void setBuyer_number(String buyer_number) {
+        this.buyer_number = buyer_number;
+    }
+
+
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+
 
     public String getDays() {
         return days;
     }
 
-    public String getContact_no() {
-        return Contact_no;
-    }
+
 
 
     public String getTool() {
@@ -29,9 +52,7 @@ public class seller_rentorderschema {
         Price = price;
     }
 
-    public void setContact_no(String contact_no) {
-        Contact_no = contact_no;
-    }
+
 
     public void setDays(String days) {
         this.days = days;
