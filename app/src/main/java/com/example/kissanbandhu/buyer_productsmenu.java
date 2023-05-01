@@ -57,7 +57,10 @@ public class buyer_productsmenu extends AppCompatActivity {
 
 
                     Tractors trac = dataSnapshot.getValue(Tractors.class);
-                    list.add(trac);
+                    if(trac.getContact_no()=="+919898989891"){
+                        list.add(trac);
+                    }
+
 
 
                 }

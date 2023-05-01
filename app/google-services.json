@@ -1,34 +1,33 @@
 {
   "project_info": {
-    "project_number": "465136628267",
-    "firebase_url": "https://kissan-bandhu-32530-default-rtdb.firebaseio.com",
-    "project_id": "kissan-bandhu-32530",
-    "storage_bucket": "kissan-bandhu-32530.appspot.com"
+    "project_number": "990336746087",
+    "project_id": "kissan-bandhu-41903",
+    "storage_bucket": "kissan-bandhu-41903.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:465136628267:android:78854b047c6415d783306e",
+        "mobilesdk_app_id": "1:990336746087:android:49dfff2c22d3bed34f4ac2",
         "android_client_info": {
           "package_name": "com.example.kissanbandhu"
         }
       },
       "oauth_client": [
         {
-          "client_id": "465136628267-6ulmgvsj5qfr97tdj11idhmrdi67tjpb.apps.googleusercontent.com",
+          "client_id": "990336746087-bikkdqdn1qqlpokir1rqd9ok4askjbu0.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDZ_P57SPD5em-za3B3jplve4gaMeTppNo"
+          "current_key": "AIzaSyDBlHRRL_YWTpZBU8C62znKk-BA_WRq3NE"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "465136628267-6ulmgvsj5qfr97tdj11idhmrdi67tjpb.apps.googleusercontent.com",
+              "client_id": "990336746087-bikkdqdn1qqlpokir1rqd9ok4askjbu0.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
