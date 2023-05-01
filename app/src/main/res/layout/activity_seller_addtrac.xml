@@ -10,7 +10,6 @@
     tools:context=".seller_addtrac">
 
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="650dp"
@@ -19,7 +18,6 @@
         android:orientation="vertical"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp">
-
 
 
         <LinearLayout
@@ -75,25 +73,6 @@
                 android:textSize="20dp"></Button>
 
 
-
-            <Button
-                android:layout_width="200dp"
-                android:layout_height="60dp"
-                android:layout_marginTop="10dp"
-                android:id="@+id/Update_stock"
-                android:layout_gravity="center"
-                android:text="Update Stock"
-                android:backgroundTint="#DC3E33"
-                android:textSize="20dp"></Button>
-            <Button
-                android:layout_width="200dp"
-                android:layout_height="60dp"
-                android:layout_marginTop="10dp"
-                android:id="@+id/Delete_stock"
-                android:layout_gravity="center"
-                android:text="Delete Stock"
-                android:backgroundTint="#DC3E33"
-                android:textSize="20dp"></Button>
             <Button
                 android:layout_width="200dp"
                 android:layout_height="60dp"

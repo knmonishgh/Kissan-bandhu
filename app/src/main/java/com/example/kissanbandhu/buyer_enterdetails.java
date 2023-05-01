@@ -100,7 +100,7 @@ public class buyer_enterdetails extends AppCompatActivity {
             }
         });
 
-       
+
 
         productPriceRef = database.getReference("Selected_item/NewPrice");
         productPriceRef.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -158,7 +158,7 @@ public class buyer_enterdetails extends AppCompatActivity {
         });
 
 
-        
+
 
         mstartdate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -223,7 +223,7 @@ public class buyer_enterdetails extends AppCompatActivity {
     }
 
 
-   private void showStartDateDialog(Context context) {
+    private void showStartDateDialog(Context context) {
 
         int year = startCal.get(Calendar.YEAR);
         int month = startCal.get(Calendar.MONTH);
@@ -289,4 +289,3 @@ public class buyer_enterdetails extends AppCompatActivity {
     }
 
 }
-//hfyfr
